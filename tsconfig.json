@@ -13,7 +13,6 @@
 
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
-    "erasableSyntaxOnly": true,
 
     "isolatedDeclarations": true,
     "declaration": true,

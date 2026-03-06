@@ -9,18 +9,31 @@
     }
   },
   "scripts": {
+    "generate": "buf generate",
     "build": "tsdown",
     "check:lint": "oxlint",
     "check:fmt": "oxfmt --check",
+    "check:types": "tsc --noEmit",
     "fix:lint": "oxlint --fix",
     "fix:fmt": "oxfmt"
   },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.11.0",
+    "@connectrpc/connect": "^2.1.1"
+  },
   "devDependencies": {
+    "@bufbuild/buf": "^1.66.0",
+    "@bufbuild/protoc-gen-es": "^2.11.0",
     "oxfmt": "^0.36.0",
     "oxlint": "^1.51.0",
     "oxlint-tsgolint": "^0.16.0",
     "tsdown": "^0.21.0",
     "typescript": "^5.9.3"
   },
-  "packageManager": "pnpm@10.3.0"
+  "packageManager": "pnpm@10.3.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@bufbuild/buf"
+    ]
+  }
 }

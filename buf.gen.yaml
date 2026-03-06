@@ -1,0 +1,11 @@
+version: v2
+clean: true
+plugins:
+  - local: protoc-gen-es
+    out: src/gen
+    opt:
+      - target=ts
+inputs:
+  - git_repo: https://github.com/mixigroup/mixi2-api.git
+    subdir: proto
+    tag: v1.0.0
