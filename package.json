@@ -1,6 +1,25 @@
 {
   "name": "mixi2-application-sdk-ts",
   "version": "0.0.0",
+  "description": "mixi2 Application SDK for TypeScript (Unofficial)",
+  "keywords": [
+    "mixi2"
+  ],
+  "homepage": "https://github.com/mst-mkt/mixi2-application-sdk-ts#readme",
+  "bugs": {
+    "url": "https://github.com/mst-mkt/mixi2-application-sdk-ts/issues"
+  },
+  "license": "Apache-2.0",
+  "author": "mst-mkt",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mst-mkt/mixi2-application-sdk-ts.git"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
   "type": "module",
   "exports": {
     ".": {
@@ -54,6 +73,9 @@
   "peerDependencies": {
     "@bufbuild/protobuf": "^2.7.0",
     "@connectrpc/connect": "^2.1.0"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "packageManager": "pnpm@10.3.0",
   "pnpm": {
