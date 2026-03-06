@@ -128,4 +128,4 @@ await watcher.watch(controller.signal)
 
 ## ライセンス
 
-TODO: ライセンスの追加
+[Apache License 2.0](LICENSE)
