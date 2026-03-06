@@ -1,0 +1,13 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["import"],
+  "options": {
+    "typeAware": true,
+    "typeCheck": true
+  },
+  "ignorePatterns": ["dist/**"],
+  "rules": {
+    "no-unused-vars": "warn",
+    "typescript/consistent-type-imports": "warn"
+  }
+}

@@ -2,6 +2,12 @@
   "name": "mixi2-application-sdk-ts",
   "version": "0.0.0",
   "type": "module",
+  "scripts": {
+    "check:lint": "oxlint",
+    "check:fmt": "oxfmt --check",
+    "fix:lint": "oxlint --fix",
+    "fix:fmt": "oxfmt"
+  },
   "devDependencies": {
     "oxfmt": "^0.36.0",
     "oxlint": "^1.51.0",
