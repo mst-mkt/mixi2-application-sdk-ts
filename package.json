@@ -39,10 +39,6 @@
     "test": "vitest run",
     "test:watch": "vitest"
   },
-  "peerDependencies": {
-    "@bufbuild/protobuf": "^2.7.0",
-    "@connectrpc/connect": "^2.1.0"
-  },
   "devDependencies": {
     "@bufbuild/buf": "^1.66.0",
     "@bufbuild/protobuf": "^2.11.0",
@@ -54,6 +50,10 @@
     "tsdown": "^0.21.0",
     "typescript": "^5.9.3",
     "vitest": "^4.0.18"
+  },
+  "peerDependencies": {
+    "@bufbuild/protobuf": "^2.7.0",
+    "@connectrpc/connect": "^2.1.0"
   },
   "packageManager": "pnpm@10.3.0",
   "pnpm": {
