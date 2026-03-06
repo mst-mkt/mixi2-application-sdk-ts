@@ -2,7 +2,14 @@
   "name": "mixi2-application-sdk-ts",
   "version": "0.0.0",
   "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "scripts": {
+    "build": "tsdown",
     "check:lint": "oxlint",
     "check:fmt": "oxfmt --check",
     "fix:lint": "oxlint --fix",

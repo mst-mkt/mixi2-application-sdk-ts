@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "erasableSyntaxOnly": true,
+
+    "isolatedDeclarations": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    "skipLibCheck": true,
+    "noEmit": true,
+
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": ["src"]
+}
