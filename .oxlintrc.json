@@ -5,7 +5,7 @@
     "typeAware": true,
     "typeCheck": true
   },
-  "ignorePatterns": ["dist/**", "src/gen/**"],
+  "ignorePatterns": ["dist/**", "src/gen/**", "example/**"],
   "rules": {
     "no-unused-vars": "warn",
     "typescript/consistent-type-imports": "warn"
