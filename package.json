@@ -6,6 +6,26 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./auth": {
+      "types": "./dist/auth/index.d.ts",
+      "import": "./dist/auth/index.js"
+    },
+    "./client": {
+      "types": "./dist/client/index.d.ts",
+      "import": "./dist/client/index.js"
+    },
+    "./event": {
+      "types": "./dist/event/index.d.ts",
+      "import": "./dist/event/index.js"
+    },
+    "./event/webhook": {
+      "types": "./dist/event/webhook/index.d.ts",
+      "import": "./dist/event/webhook/index.js"
+    },
+    "./event/stream": {
+      "types": "./dist/event/stream/index.d.ts",
+      "import": "./dist/event/stream/index.js"
     }
   },
   "scripts": {
@@ -15,20 +35,25 @@
     "check:fmt": "oxfmt --check",
     "check:types": "tsc --noEmit",
     "fix:lint": "oxlint --fix",
-    "fix:fmt": "oxfmt"
+    "fix:fmt": "oxfmt",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
-  "dependencies": {
-    "@bufbuild/protobuf": "^2.11.0",
-    "@connectrpc/connect": "^2.1.1"
+  "peerDependencies": {
+    "@bufbuild/protobuf": "^2.7.0",
+    "@connectrpc/connect": "^2.1.0"
   },
   "devDependencies": {
     "@bufbuild/buf": "^1.66.0",
+    "@bufbuild/protobuf": "^2.11.0",
     "@bufbuild/protoc-gen-es": "^2.11.0",
+    "@connectrpc/connect": "^2.1.1",
     "oxfmt": "^0.36.0",
     "oxlint": "^1.51.0",
     "oxlint-tsgolint": "^0.16.0",
     "tsdown": "^0.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
   },
   "packageManager": "pnpm@10.3.0",
   "pnpm": {

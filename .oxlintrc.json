@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["import"],
+  "plugins": ["import", "vitest"],
   "options": {
     "typeAware": true,
     "typeCheck": true
