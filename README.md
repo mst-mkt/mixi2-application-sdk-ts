@@ -7,7 +7,17 @@ mixi2 の Application API を利用するための TypeScript SDK です。
 
 ## インストール
 
-TODO: npm, jsr へ publish
+### npm
+
+```bash
+pnpm add @mst-mkt/mixi2-application-sdk-ts
+```
+
+### JSR
+
+```bash
+pnpm add jsr:@mst-mkt/mixi2-application-sdk-ts
+```
 
 ## 機能
 
