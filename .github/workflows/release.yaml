@@ -32,8 +32,8 @@ jobs:
         with:
           commit: 'release version'
           title: 'release version'
-          version: changeset version && node ./scripts/sync-jsr-version.ts
-          publish: pnpm release
+          version: pnpm run version
+          publish: pnpm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     outputs:
