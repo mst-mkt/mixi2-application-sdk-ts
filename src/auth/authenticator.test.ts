@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import { DEFAULT_TOKEN_URL } from '../constants'
 import { createAuthenticator } from './authenticator'
 
 const mockConfig = {
@@ -89,5 +90,18 @@ describe('createAuthenticator', () => {
       headers: { 'content-type': 'application/x-www-form-urlencoded' },
       body: 'grant_type=client_credentials&client_id=client-id&client_secret=client-secret',
     })
+  })
+
+  it('default_token_url', async () => {
+    const fetchMock = vi.fn(() => Promise.resolve(mockTokenResponse()))
+    vi.stubGlobal('fetch', fetchMock)
+    const auth = createAuthenticator({
+      clientId: 'client-id',
+      clientSecret: 'client-secret',
+    })
+
+    await auth.getAccessToken()
+
+    expect(fetchMock).toHaveBeenCalledWith(DEFAULT_TOKEN_URL, expect.anything())
   })
 })

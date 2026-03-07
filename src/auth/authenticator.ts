@@ -1,3 +1,4 @@
+import { DEFAULT_TOKEN_URL } from '../constants'
 import { createAuthInterceptor } from './interceptor'
 import type { AuthConfig, Authenticator, TokenResponse } from './types'
 
@@ -14,7 +15,7 @@ export const createAuthenticator = (config: AuthConfig): Authenticator => {
       client_secret: config.clientSecret,
     })
 
-    const response = await fetch(config.tokenUrl, {
+    const response = await fetch(config.tokenUrl ?? DEFAULT_TOKEN_URL, {
       method: 'POST',
       headers: { 'content-type': 'application/x-www-form-urlencoded' },
       body: body.toString(),

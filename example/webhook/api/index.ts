@@ -1,5 +1,6 @@
 import { createGrpcTransport } from '@connectrpc/connect-node'
 import { createAuthenticator } from 'mixi2-application-sdk-ts/auth'
+import { DEFAULT_BASE_URL } from 'mixi2-application-sdk-ts'
 import { createMixi2Client } from 'mixi2-application-sdk-ts/client'
 import type { EventHandler } from 'mixi2-application-sdk-ts/event'
 import { createWebhookHandler } from 'mixi2-application-sdk-ts/event/webhook'
@@ -15,12 +16,11 @@ const env = (name: string): string => {
 const authenticator = createAuthenticator({
   clientId: env('CLIENT_ID'),
   clientSecret: env('CLIENT_SECRET'),
-  tokenUrl: env('TOKEN_URL'),
 })
 
 const client = createMixi2Client({
   transport: createGrpcTransport({
-    baseUrl: env('API_ADDRESS'),
+    baseUrl: DEFAULT_BASE_URL,
     interceptors: [authenticator.createInterceptor()],
   }),
 })
