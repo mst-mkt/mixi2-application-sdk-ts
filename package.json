@@ -1,5 +1,5 @@
 {
-  "name": "mixi2-application-sdk-ts",
+  "name": "@mst-mkt/mixi2-application-sdk-ts",
   "version": "0.0.0",
   "description": "mixi2 Application SDK for TypeScript (Unofficial)",
   "keywords": [
@@ -56,13 +56,18 @@
     "fix:lint": "oxlint --fix",
     "fix:fmt": "oxfmt",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prerelease": "pnpm build",
+    "release": "changeset publish"
   },
   "devDependencies": {
     "@bufbuild/buf": "^1.66.0",
     "@bufbuild/protobuf": "^2.11.0",
     "@bufbuild/protoc-gen-es": "^2.11.0",
+    "@changesets/changelog-github": "^0.6.0",
+    "@changesets/cli": "^2.30.0",
     "@connectrpc/connect": "^2.1.1",
+    "@types/node": "^24.12.0",
     "oxfmt": "^0.36.0",
     "oxlint": "^1.51.0",
     "oxlint-tsgolint": "^0.16.0",
