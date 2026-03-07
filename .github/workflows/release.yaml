@@ -23,15 +23,15 @@ jobs:
       - name: setup node.js
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
-          node-version: "24.14.0"
-          cache: "pnpm"
-          registry-url: "https://registry.npmjs.org"
+          node-version: '24.14.0'
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
       - name: create release pr or publish to npm
         id: changesets
         uses: changesets/action@6a0a831ff30acef54f2c6aa1cbbc1096b066edaf # v1.7.0
         with:
-          commit: "release version"
-          title: "release version"
+          commit: 'release version'
+          title: 'release version'
           version: changeset version && node ./scripts/sync-jsr-version.ts
           publish: pnpm release
         env:
