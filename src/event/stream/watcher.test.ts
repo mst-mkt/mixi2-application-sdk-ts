@@ -1,6 +1,7 @@
-import type { Transport } from '@connectrpc/connect'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
+import type { Authenticator } from '../../auth/types'
+import { DEFAULT_STREAM_BASE_URL } from '../../constants'
 import { EventType } from '../../gen/social/mixi/application/const/v1/event_type_pb'
 import { createMockHandler, fakeErrorStream, fakeStream } from '../../test/utils'
 
@@ -9,6 +10,11 @@ vi.mock('./backoff', async (importOriginal) => {
   return { ...original, sleep: vi.fn(() => Promise.resolve()) }
 })
 
+const createTransportMock = vi.fn(() => ({}))
+vi.mock('../../transport', () => ({
+  createTransport: createTransportMock,
+}))
+
 const subscribeEventsMock = vi.fn()
 vi.mock('@connectrpc/connect', () => ({
   createClient: () => ({ subscribeEvents: subscribeEventsMock }),
@@ -16,24 +22,21 @@ vi.mock('@connectrpc/connect', () => ({
 
 const { createStreamWatcher } = await import('./watcher')
 
-const dummyTransport: Transport = {
-  unary: () => {
-    throw new Error('not implemented')
-  },
-  stream: () => {
-    throw new Error('not implemented')
-  },
+const dummyAuthenticator: Authenticator = {
+  getAccessToken: () => Promise.resolve('dummy'),
+  createInterceptor: () => (next) => (req) => next(req),
 }
 
 beforeEach(() => {
   subscribeEventsMock.mockReset()
+  createTransportMock.mockClear()
 })
 
 describe('streamWatcher', () => {
   it('handles_events_and_ignores_ping', async () => {
     subscribeEventsMock.mockReturnValueOnce(fakeStream(EventType.PING, EventType.UNSPECIFIED))
     const handler = createMockHandler()
-    const watcher = createStreamWatcher({ transport: dummyTransport }, handler)
+    const watcher = createStreamWatcher({ authenticator: dummyAuthenticator }, handler)
 
     await watcher.watch()
 
@@ -45,7 +48,7 @@ describe('streamWatcher', () => {
     subscribeEventsMock.mockReturnValueOnce(fakeErrorStream('stream error'))
     subscribeEventsMock.mockReturnValueOnce(fakeStream(EventType.UNSPECIFIED))
     const handler = createMockHandler()
-    const watcher = createStreamWatcher({ transport: dummyTransport }, handler)
+    const watcher = createStreamWatcher({ authenticator: dummyAuthenticator }, handler)
 
     await watcher.watch()
 
@@ -56,9 +59,32 @@ describe('streamWatcher', () => {
   it('max_retries_exceeded', async () => {
     subscribeEventsMock.mockImplementation(() => fakeErrorStream('persistent error'))
     const handler = createMockHandler()
-    const watcher = createStreamWatcher({ transport: dummyTransport, maxRetries: 3 }, handler)
+    const watcher = createStreamWatcher(
+      { authenticator: dummyAuthenticator, maxRetries: 3 },
+      handler,
+    )
 
     await expect(watcher.watch()).rejects.toThrow('persistent error')
     expect(subscribeEventsMock).toHaveBeenCalledTimes(4)
+  })
+
+  it('uses DEFAULT_STREAM_BASE_URL when baseUrl is not specified', () => {
+    createStreamWatcher({ authenticator: dummyAuthenticator }, createMockHandler())
+
+    expect(createTransportMock).toHaveBeenCalledWith(
+      expect.objectContaining({ baseUrl: DEFAULT_STREAM_BASE_URL }),
+    )
+  })
+
+  it('uses custom baseUrl when specified', () => {
+    const customUrl = 'https://custom-stream.example.com'
+    createStreamWatcher(
+      { authenticator: dummyAuthenticator, baseUrl: customUrl },
+      createMockHandler(),
+    )
+
+    expect(createTransportMock).toHaveBeenCalledWith(
+      expect.objectContaining({ baseUrl: customUrl }),
+    )
   })
 })
