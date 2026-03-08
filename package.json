@@ -63,6 +63,8 @@
     "postversion": "node ./scripts/sync-jsr-version.ts"
   },
   "dependencies": {
+    "@bufbuild/protobuf": "^2.7.0",
+    "@connectrpc/connect": "^2.1.0",
     "@connectrpc/connect-node": "^2.1.0"
   },
   "devDependencies": {
@@ -79,10 +81,6 @@
     "tsdown": "^0.21.0",
     "typescript": "^5.9.3",
     "vitest": "^4.0.18"
-  },
-  "peerDependencies": {
-    "@bufbuild/protobuf": "^2.7.0",
-    "@connectrpc/connect": "^2.1.0"
   },
   "engines": {
     "node": ">=18"
