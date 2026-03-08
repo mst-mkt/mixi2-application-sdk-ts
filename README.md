@@ -68,7 +68,7 @@ pnpm add jsr:@mst-mkt/mixi2-application-sdk-ts
 | Bun                | ✅     | ✅       | ✅              | ✅             |
 | Cloudflare Workers | ✅     | ❌       | ✅              | ❌             |
 
-<details><summary>詳細な環境要件</summary>
+### 詳細な対応状況
 
 - Node.js: 18.4.0 以降
   - `crypto.subtle`: 18.4.0 以降 (ref: https://nodejs.org/en/blog/release/v18.4.0#notable-changes)
@@ -82,8 +82,6 @@ pnpm add jsr:@mst-mkt/mixi2-application-sdk-ts
 - Cloudflare Workers: 非対応
   - `crypto.subtle`: 2023-04-28 以降 (ref: https://developers.cloudflare.com/workers/platform/changelog/#2023-04-28)
   - `node:http2`: 非対応 (ref: https://developers.cloudflare.com/workers/runtime-apis/nodejs/#supported-nodejs-apis)
-
-</details>
 
 また、ランタイムが対応している場合でも、サーバーレス環境などでストリーム接続が制限されている場合があります。
 使用する環境に応じて、Webhook と gRPC ストリーミングのどちらかを選択してください。
