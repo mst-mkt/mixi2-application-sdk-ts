@@ -1,0 +1,70 @@
+name: バグ報告
+description: バグや不具合の報告
+labels: ['bug']
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: バグの説明
+      description: 発生しているバグの内容を説明してください。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 再現手順
+      description: バグを再現するための手順を記載してください。
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待される動作
+      description: 本来どのように動作すべきか説明してください。
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 実際の動作
+      description: 実際にどのような動作になっているか説明してください。
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: SDK バージョン
+      description: 使用している SDK のバージョンを記入してください。
+      placeholder: '0.2.1'
+    validations:
+      required: true
+  - type: dropdown
+    id: runtime
+    attributes:
+      label: ランタイム
+      options:
+        - Node.js
+        - Deno
+        - Bun
+        - Cloudflare Workers
+        - その他
+    validations:
+      required: true
+  - type: input
+    id: runtime-version
+    attributes:
+      label: ランタイムのバージョン
+      placeholder: 'v24.14.0'
+    validations:
+      required: false
+  - type: textarea
+    id: additional
+    attributes:
+      label: 補足情報
+      description: その他、関連する情報があれば記載してください。
+    validations:
+      required: false

@@ -1,0 +1,32 @@
+name: 質問
+description: SDK の使い方や動作についての質問
+labels: ['question']
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: 質問内容
+      description: 質問の内容を具体的に記載してください。
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: 背景・コンテキスト
+      description: 質問に至った背景や、やりたいことを記載してください。
+    validations:
+      required: false
+  - type: textarea
+    id: tried
+    attributes:
+      label: 試したこと
+      description: 自分で試したことや調べたことがあれば記載してください。
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: SDK バージョン
+      placeholder: '0.2.1'
+    validations:
+      required: false
