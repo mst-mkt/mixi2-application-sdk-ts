@@ -92,21 +92,38 @@ export const createWebhookHandler = (
       return new Response('Unauthorized', { status: 401 })
     }
 
-    try {
-      const sendEventRequest = fromBinary(SendEventRequestSchema, body)
-      const events = sendEventRequest.events.filter((event) => !isPingEvent(event))
+    const sendEventRequest = (() => {
+      try {
+        return fromBinary(SendEventRequestSchema, body)
+      } catch {
+        return null
+      }
+    })()
 
-      if (config.syncHandling) {
-        for (const event of events) {
-          await handler.handle(event).catch(onError)
-        }
-      } else {
-        for (const event of events) {
-          void handler.handle(event).catch(onError)
+    if (sendEventRequest === null) {
+      return new Response('Failed to parse request body', { status: 400 })
+    }
+
+    const events = sendEventRequest.events.filter((event) => !isPingEvent(event))
+
+    if (config.syncHandling) {
+      for (const event of events) {
+        try {
+          await handler.handle(event)
+        } catch (error) {
+          onError(error)
         }
       }
-    } catch {
-      return new Response('Failed to parse request body', { status: 400 })
+    } else {
+      void (async () => {
+        for (const event of events) {
+          try {
+            await handler.handle(event)
+          } catch (error) {
+            onError(error)
+          }
+        }
+      })()
     }
 
     return new Response(null, { status: 204 })

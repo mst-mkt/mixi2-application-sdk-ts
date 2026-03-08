@@ -200,12 +200,54 @@ describe('webhookHandler', () => {
     expect(onError).toHaveBeenCalledWith(handlerError)
   })
 
+  it('handler_sync_throw_calls_on_error_sync', async () => {
+    const { publicKeyBase64, signRequest } = await generateKeyPair()
+    const onError = vi.fn()
+    const handlerError = new Error('sync throw')
+    const handler = {
+      handle: () => {
+        throw handlerError
+      },
+    }
+    const webhookHandler = createWebhookHandler(
+      { signaturePublicKey: publicKeyBase64, syncHandling: true, onError },
+      handler,
+    )
+    const body = createEventBody(EventType.UNSPECIFIED)
+
+    const response = await webhookHandler(await createSignedRequest(body, signRequest))
+
+    expect(response.status).toBe(204)
+    expect(onError).toHaveBeenCalledWith(handlerError)
+  })
+
   it('handler_error_calls_on_error_async', async () => {
     const { publicKeyBase64, signRequest } = await generateKeyPair()
     const onError = vi.fn()
     const handlerError = new Error('handler failed')
     const handler = {
       handle: async () => {
+        throw handlerError
+      },
+    }
+    const webhookHandler = createWebhookHandler(
+      { signaturePublicKey: publicKeyBase64, onError },
+      handler,
+    )
+    const body = createEventBody(EventType.UNSPECIFIED)
+
+    const response = await webhookHandler(await createSignedRequest(body, signRequest))
+
+    expect(response.status).toBe(204)
+    await vi.waitFor(() => expect(onError).toHaveBeenCalledWith(handlerError))
+  })
+
+  it('handler_sync_throw_calls_on_error_async', async () => {
+    const { publicKeyBase64, signRequest } = await generateKeyPair()
+    const onError = vi.fn()
+    const handlerError = new Error('sync throw')
+    const handler = {
+      handle: () => {
         throw handlerError
       },
     }
