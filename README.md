@@ -54,6 +54,40 @@ pnpm add jsr:@mst-mkt/mixi2-application-sdk-ts
 | `getStamps`               | スタンプセットの取得                        |
 | `addStampToPost`          | ポストへのスタンプの追加                    |
 
+## 環境サポート
+
+このライブラリは以下の API を使用しているため、環境により一部機能が利用できない場合があります。
+
+- [`node:http2`](https://nodejs.org/api/http2.html): gRPC のストリーミングに使用 (`@connectrpc/connect-node`)
+- [`crypto.subtle`](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto): Webhook の署名検証に使用
+
+| 環境               | `auth` | `client` | `event/webhook` | `event/stream` |
+| ------------------ | ------ | -------- | --------------- | -------------- |
+| Node.js            | ✅     | ✅       | ✅              | ✅             |
+| Deno               | ✅     | ✅       | ✅              | ✅             |
+| Bun                | ✅     | ✅       | ✅              | ✅             |
+| Cloudflare Workers | ✅     | ❌       | ✅              | ❌             |
+
+<details><summary>詳細な環境要件</summary>
+
+- Node.js: 18.4.0 以降
+  - `crypto.subtle`: 18.4.0 以降 (ref: https://nodejs.org/en/blog/release/v18.4.0#notable-changes)
+  - `node:http2`: 10.10.0 以降 (ref: https://nodejs.org/en/blog/release/v10.10.0#notable-changes)
+- Deno: 1.26.0 以降
+  - `crypto.subtle`: 1.26.0 以降 (ref: https://deno.com/blog/v1.26#webcrypto-secure-curves)
+  - `node:http2`: 1.37.0 以降 (ref: https://deno.com/blog/v1.37#nodejs-compatibility-improvements)
+- Bun: 0.5.7 以降
+  - `crypto.subtle`: 0.5.7 以降 (ref: https://bun.sh/blog/bun-v0.5.7#changelog)
+  - `node:http2`: 1.0.13 以降 (ref: https://bun.sh/blog/bun-v1.0.13#http2-client-support)
+- Cloudflare Workers: 非対応
+  - `crypto.subtle`: 2023-04-28 以降 (ref: https://developers.cloudflare.com/workers/platform/changelog/#2023-04-28)
+  - `node:http2`: 非対応 (ref: https://developers.cloudflare.com/workers/runtime-apis/nodejs/#supported-nodejs-apis)
+
+</details>
+
+また、ランタイムが対応している場合でも、サーバーレス環境などでストリーム接続が制限されている場合があります。
+使用する環境に応じて、Webhook と gRPC ストリーミングのどちらかを選択してください。
+
 ## セットアップ
 
 認証とクライアントの作成は、Webhook・gRPC どちらの方式でも共通です。
