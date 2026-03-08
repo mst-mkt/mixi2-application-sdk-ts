@@ -125,8 +125,6 @@ pnpm build     # ビルド
 pnpm test      # テスト
 ```
 
-</details>
-
 ## ライセンス
 
 [Apache License 2.0](LICENSE)
