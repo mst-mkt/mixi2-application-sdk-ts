@@ -59,24 +59,14 @@ pnpm add jsr:@mst-mkt/mixi2-application-sdk-ts
 認証とクライアントの作成は、Webhook・gRPC どちらの方式でも共通です。
 
 ```typescript
-import { createGrpcTransport } from '@connectrpc/connect-node'
-import {
-  createAuthenticator,
-  DEFAULT_BASE_URL,
-  createMixi2Client,
-} from '@mst-mkt/mixi2-application-sdk-ts'
+import { createAuthenticator, createMixi2Client } from '@mst-mkt/mixi2-application-sdk-ts'
 
 const authenticator = createAuthenticator({
   clientId: CLIENT_ID,
   clientSecret: CLIENT_SECRET,
 })
 
-const client = createMixi2Client({
-  transport: createGrpcTransport({
-    baseUrl: DEFAULT_BASE_URL,
-    interceptors: [authenticator.createInterceptor()],
-  }),
-})
+const client = createMixi2Client({ authenticator })
 ```
 
 ## イベント受信

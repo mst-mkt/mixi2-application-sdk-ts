@@ -1,5 +1,3 @@
-import { createGrpcTransport } from '@connectrpc/connect-node'
-import { DEFAULT_BASE_URL } from '@mst-mkt/mixi2-application-sdk-ts'
 import { createAuthenticator } from '@mst-mkt/mixi2-application-sdk-ts/auth'
 import { createMixi2Client } from '@mst-mkt/mixi2-application-sdk-ts/client'
 import type { EventHandler } from '@mst-mkt/mixi2-application-sdk-ts/event'
@@ -18,12 +16,7 @@ const authenticator = createAuthenticator({
   clientSecret: env('CLIENT_SECRET'),
 })
 
-const client = createMixi2Client({
-  transport: createGrpcTransport({
-    baseUrl: DEFAULT_BASE_URL,
-    interceptors: [authenticator.createInterceptor()],
-  }),
-})
+const client = createMixi2Client({ authenticator })
 
 const EVENT_REASON_POST_MENTIONED = 3
 

@@ -3,14 +3,15 @@ import { createClient } from '@connectrpc/connect'
 
 import type { Event } from '../../gen/social/mixi/application/model/v1/event_pb'
 import { ApplicationService } from '../../gen/social/mixi/application/service/application_stream/v1/service_pb'
+import type { TransportConfig } from '../../transport'
+import { createTransport } from '../../transport'
 import { isPingEvent, resolveOnError } from '../types'
 import type { EventHandler, OnErrorHandler } from '../types'
 import { calculateBackoff, sleep } from './backoff'
 
 const DEFAULT_MAX_RETRIES = 3
 
-export type StreamWatcherConfig = {
-  readonly transport: Transport
+export type StreamWatcherConfig = TransportConfig & {
   readonly maxRetries?: number
   readonly onError?: OnErrorHandler
 }
@@ -54,13 +55,14 @@ export const createStreamWatcher = (
   config: StreamWatcherConfig,
   handler: EventHandler,
 ): StreamWatcher => {
+  const transport = createTransport(config)
   const maxRetries = config.maxRetries ?? DEFAULT_MAX_RETRIES
   const onError = resolveOnError(config.onError)
 
   const watch = async (signal?: AbortSignal): Promise<void> => {
     for (let retries = 0; !signal?.aborted; retries++) {
       try {
-        await consumeStream(config.transport, handler, onError, signal)
+        await consumeStream(transport, handler, onError, signal)
         return
       } catch (error) {
         if (signal?.aborted) return
