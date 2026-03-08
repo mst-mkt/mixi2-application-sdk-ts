@@ -102,14 +102,17 @@ export const createStreamWatcher = (
   const onError = resolveOnError(config.onError)
 
   const watch = async (signal?: AbortSignal): Promise<void> => {
-    for (let retries = 0; !signal?.aborted; retries++) {
+    let retries = 0
+
+    while (!signal?.aborted) {
       try {
         await consumeStream(transport, handler, onError, signal)
-        return
+        retries = 0
       } catch (error) {
         if (signal?.aborted) return
         if (retries >= maxRetries) throw error
         await sleep(calculateBackoff(retries))
+        retries++
       }
     }
   }

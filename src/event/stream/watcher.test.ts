@@ -34,26 +34,75 @@ beforeEach(() => {
 
 describe('streamWatcher', () => {
   it('handles_events_and_ignores_ping', async () => {
-    subscribeEventsMock.mockReturnValueOnce(fakeStream(EventType.PING, EventType.UNSPECIFIED))
+    const controller = new AbortController()
+    subscribeEventsMock
+      .mockReturnValueOnce(fakeStream(EventType.PING, EventType.UNSPECIFIED))
+      .mockImplementation(() => {
+        controller.abort()
+        return fakeStream()
+      })
     const handler = createMockHandler()
     const watcher = createStreamWatcher({ authenticator: dummyAuthenticator }, handler)
 
-    await watcher.watch()
+    await watcher.watch(controller.signal)
 
     expect(handler.events).toHaveLength(1)
     expect(handler.events[0]?.eventType).toBe(EventType.UNSPECIFIED)
   })
 
   it('reconnects_on_error', async () => {
-    subscribeEventsMock.mockReturnValueOnce(fakeErrorStream('stream error'))
-    subscribeEventsMock.mockReturnValueOnce(fakeStream(EventType.UNSPECIFIED))
+    const controller = new AbortController()
+    subscribeEventsMock
+      .mockReturnValueOnce(fakeErrorStream('stream error'))
+      .mockReturnValueOnce(fakeStream(EventType.UNSPECIFIED))
+      .mockImplementation(() => {
+        controller.abort()
+        return fakeStream()
+      })
     const handler = createMockHandler()
     const watcher = createStreamWatcher({ authenticator: dummyAuthenticator }, handler)
 
-    await watcher.watch()
+    await watcher.watch(controller.signal)
+
+    expect(handler.events).toHaveLength(1)
+    expect(subscribeEventsMock).toHaveBeenCalledTimes(3)
+  })
+
+  it('reconnects_on_normal_stream_end', async () => {
+    const controller = new AbortController()
+    subscribeEventsMock
+      .mockReturnValueOnce(fakeStream(EventType.UNSPECIFIED))
+      .mockImplementation(() => {
+        controller.abort()
+        return fakeStream()
+      })
+    const handler = createMockHandler()
+    const watcher = createStreamWatcher({ authenticator: dummyAuthenticator }, handler)
+
+    await watcher.watch(controller.signal)
 
     expect(handler.events).toHaveLength(1)
     expect(subscribeEventsMock).toHaveBeenCalledTimes(2)
+  })
+
+  it('resets_retries_after_successful_connection', async () => {
+    subscribeEventsMock
+      .mockReturnValueOnce(fakeErrorStream('error 1'))
+      .mockReturnValueOnce(fakeStream(EventType.UNSPECIFIED))
+      .mockReturnValueOnce(fakeErrorStream('error 2'))
+      .mockReturnValueOnce(fakeErrorStream('error 3'))
+      .mockReturnValueOnce(fakeErrorStream('error 4'))
+      .mockReturnValueOnce(fakeErrorStream('error 5'))
+    const handler = createMockHandler()
+    const watcher = createStreamWatcher(
+      { authenticator: dummyAuthenticator, maxRetries: 3 },
+      handler,
+    )
+
+    await expect(watcher.watch()).rejects.toThrow('error 5')
+
+    expect(handler.events).toHaveLength(1)
+    expect(subscribeEventsMock).toHaveBeenCalledTimes(6)
   })
 
   it('max_retries_exceeded', async () => {
@@ -65,6 +114,7 @@ describe('streamWatcher', () => {
     )
 
     await expect(watcher.watch()).rejects.toThrow('persistent error')
+
     expect(subscribeEventsMock).toHaveBeenCalledTimes(4)
   })
 
@@ -78,6 +128,7 @@ describe('streamWatcher', () => {
 
   it('uses custom baseUrl when specified', () => {
     const customUrl = 'https://custom-stream.example.com'
+
     createStreamWatcher(
       { authenticator: dummyAuthenticator, baseUrl: customUrl },
       createMockHandler(),
