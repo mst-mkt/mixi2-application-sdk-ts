@@ -71,8 +71,14 @@ export const createWebhookHandler = (
       return new Response('Unauthorized', { status: 401 })
     }
 
-    const buffer = await request.arrayBuffer()
-    const body = new Uint8Array(buffer)
+    const body = await request
+      .arrayBuffer()
+      .then((buf) => new Uint8Array(buf))
+      .catch(() => null)
+
+    if (body === null) {
+      return new Response('Failed to read request body', { status: 500 })
+    }
 
     const valid = await verifySignature(body, signature, timestamp, config.signaturePublicKey)
 
@@ -80,15 +86,19 @@ export const createWebhookHandler = (
       return new Response('Unauthorized', { status: 401 })
     }
 
-    const sendEventRequest = fromBinary(SendEventRequestSchema, body)
+    try {
+      const sendEventRequest = fromBinary(SendEventRequestSchema, body)
 
-    for (const event of sendEventRequest.events) {
-      if (isPingEvent(event)) continue
-      try {
-        await handler.handle(event)
-      } catch (error) {
-        onError(error)
+      for (const event of sendEventRequest.events) {
+        if (isPingEvent(event)) continue
+        try {
+          await handler.handle(event)
+        } catch (error) {
+          onError(error)
+        }
       }
+    } catch {
+      return new Response('Failed to parse request body', { status: 400 })
     }
 
     return new Response(null, { status: 204 })

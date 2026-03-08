@@ -129,6 +129,41 @@ describe('webhookHandler', () => {
     expect(response.status).toBe(405)
   })
 
+  it('body_read_failure_returns_500', async () => {
+    const { publicKeyBase64 } = await generateKeyPair()
+    const webhookHandler = createWebhookHandler(
+      { signaturePublicKey: publicKeyBase64 },
+      createMockHandler(),
+    )
+    const timestamp = String(Math.floor(Date.now() / 1000))
+    const request = new Request('http://localhost/events', {
+      method: 'POST',
+      body: 'dummy',
+      headers: {
+        'x-mixi2-application-event-signature': 'dummy',
+        'x-mixi2-application-event-timestamp': timestamp,
+      },
+    })
+    vi.spyOn(request, 'arrayBuffer').mockRejectedValue(new Error('read failure'))
+
+    const response = await webhookHandler(request)
+
+    expect(response.status).toBe(500)
+  })
+
+  it('invalid_protobuf_returns_400', async () => {
+    const { publicKeyBase64, signRequest } = await generateKeyPair()
+    const webhookHandler = createWebhookHandler(
+      { signaturePublicKey: publicKeyBase64 },
+      createMockHandler(),
+    )
+    const invalidBody = new TextEncoder().encode('not a valid protobuf')
+
+    const response = await webhookHandler(await createSignedRequest(invalidBody, signRequest))
+
+    expect(response.status).toBe(400)
+  })
+
   it('handler_error_calls_on_error_and_returns_204', async () => {
     const { publicKeyBase64, signRequest } = await generateKeyPair()
     const onError = vi.fn()
