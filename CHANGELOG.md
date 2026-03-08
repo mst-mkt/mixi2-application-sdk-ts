@@ -1,5 +1,17 @@
 # @mst-mkt/mixi2-application-sdk-ts
 
+## 0.2.1
+
+### Patch Changes
+
+- [#5](https://github.com/mst-mkt/mixi2-application-sdk-ts/pull/5) [`8b82e63`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/8b82e63c78705acbba5477c5d3739d525e088960) Thanks [@mst-mkt](https://github.com/mst-mkt)! - 公開関数・型に `@param` / `@returns` / `@example` などの詳細な JSDoc を追加
+
+- [#5](https://github.com/mst-mkt/mixi2-application-sdk-ts/pull/5) [`529b561`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/529b5610f2dc463c166817d736d1068ebf1fbd51) Thanks [@mst-mkt](https://github.com/mst-mkt)! - JSR ドキュメントスコア改善のため、エクスポートされた型・定数・関数に JSDoc コメントを追加
+
+- [#5](https://github.com/mst-mkt/mixi2-application-sdk-ts/pull/5) [`b830659`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/b8306590e068a5b5423f998b2b06046d7b76ca24) Thanks [@mst-mkt](https://github.com/mst-mkt)! - JSDoc コメントを日本語化
+
+- [#5](https://github.com/mst-mkt/mixi2-application-sdk-ts/pull/5) [`366f6f3`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/366f6f38801c03ae12cffe3725bbfaaa812ac590) Thanks [@mst-mkt](https://github.com/mst-mkt)! - JSR ドキュメントスコア改善のため、各モジュールエントリポイントに `@module` JSDoc コメントを追加
+
 ## 0.2.0
 
 ### Minor Changes
