@@ -1,9 +1,9 @@
 import { createGrpcTransport } from '@connectrpc/connect-node'
-import { DEFAULT_BASE_URL } from 'mixi2-application-sdk-ts'
-import { createAuthenticator } from 'mixi2-application-sdk-ts/auth'
-import { createMixi2Client } from 'mixi2-application-sdk-ts/client'
-import type { EventHandler } from 'mixi2-application-sdk-ts/event'
-import { createWebhookHandler } from 'mixi2-application-sdk-ts/event/webhook'
+import { DEFAULT_BASE_URL } from '@mst-mkt/mixi2-application-sdk-ts'
+import { createAuthenticator } from '@mst-mkt/mixi2-application-sdk-ts/auth'
+import { createMixi2Client } from '@mst-mkt/mixi2-application-sdk-ts/client'
+import type { EventHandler } from '@mst-mkt/mixi2-application-sdk-ts/event'
+import { createWebhookHandler } from '@mst-mkt/mixi2-application-sdk-ts/event/webhook'
 
 const env = (name: string): string => {
   const value = process.env[name]?.trim()

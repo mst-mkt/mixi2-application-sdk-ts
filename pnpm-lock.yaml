@@ -59,7 +59,7 @@ importers:
       '@connectrpc/connect-node':
         specifier: ^2.1.1
         version: 2.1.1(@bufbuild/protobuf@2.11.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.11.0))
-      mixi2-application-sdk-ts:
+      '@mst-mkt/mixi2-application-sdk-ts':
         specifier: workspace:*
         version: link:../..
     devDependencies:
