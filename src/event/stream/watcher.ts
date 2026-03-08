@@ -14,13 +14,17 @@ const DEFAULT_MAX_RETRIES = 3
 
 /** ストリームイベントウォッチャーの作成設定 */
 export type StreamWatcherConfig = Omit<TransportConfig, 'baseUrl'> & {
+  /** ストリーミング API のベース URL (省略時は {@link DEFAULT_STREAM_BASE_URL} を使用) */
   readonly baseUrl?: string
+  /** 接続エラー時の最大リトライ回数 */
   readonly maxRetries?: number
+  /** エラー発生時のコールバック */
   readonly onError?: OnErrorHandler
 }
 
 /** 自動再接続機能付きのストリームイベントウォッチャー */
 export type StreamWatcher = {
+  /** ストリーム監視を開始する (AbortSignal で停止可能) */
   readonly watch: (signal?: AbortSignal) => Promise<void>
 }
 
@@ -54,7 +58,38 @@ const consumeStream = async (
   }
 }
 
-/** 自動再接続機能付きのストリームイベントウォッチャーを作成する */
+/**
+ * 自動再接続機能付きのストリームイベントウォッチャーを作成する
+ *
+ * 接続が切断された場合、指数バックオフで自動的に再接続を試みる
+ *
+ * @param config - ストリーム接続の設定
+ * @param handler - イベントを処理する {@link EventHandler}
+ * @returns `watch()` でストリーム監視を開始できる {@link StreamWatcher}
+ *
+ * @example
+ * ```ts
+ * import { createAuthenticator } from '@mst-mkt/mixi2-application-sdk-ts/auth'
+ * import { createEventHandler } from '@mst-mkt/mixi2-application-sdk-ts/event'
+ * import { createStreamWatcher } from '@mst-mkt/mixi2-application-sdk-ts/event/stream'
+ *
+ * const authenticator = createAuthenticator({
+ *   clientId: 'your-client-id',
+ *   clientSecret: 'your-client-secret',
+ * })
+ *
+ * const eventHandler = createEventHandler({
+ *   postCreated: async ({ post }) => {
+ *     console.log('投稿が作成されました:', post?.text)
+ *   },
+ * })
+ *
+ * const watcher = createStreamWatcher({ authenticator }, eventHandler)
+ *
+ * const controller = new AbortController()
+ * await watcher.watch(controller.signal)
+ * ```
+ */
 export const createStreamWatcher = (
   config: StreamWatcherConfig,
   handler: EventHandler,

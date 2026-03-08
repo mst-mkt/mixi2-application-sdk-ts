@@ -4,7 +4,24 @@ import type { AuthConfig, Authenticator, TokenResponse } from './types'
 
 const TOKEN_EXPIRY_BUFFER_MS = 60_000
 
-/** OAuth2 Client Credentials 方式でアクセストークンを管理する {@link Authenticator} を作成する */
+/**
+ * OAuth2 Client Credentials 方式でアクセストークンを管理する {@link Authenticator} を作成する
+ *
+ * トークンは自動的にキャッシュされ、有効期限切れ時に再取得される
+ *
+ * @param config - 認証設定
+ * @returns アクセストークンの取得と Interceptor の生成が可能な {@link Authenticator}
+ *
+ * @example
+ * ```ts
+ * import { createAuthenticator } from '@mst-mkt/mixi2-application-sdk-ts/auth'
+ *
+ * const authenticator = createAuthenticator({
+ *   clientId: 'your-client-id',
+ *   clientSecret: 'your-client-secret',
+ * })
+ * ```
+ */
 export const createAuthenticator = (config: AuthConfig): Authenticator => {
   let cached: TokenResponse | undefined
 
