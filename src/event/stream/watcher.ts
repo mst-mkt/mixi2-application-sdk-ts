@@ -1,9 +1,9 @@
 import type { Transport } from '@connectrpc/connect'
 import { createClient } from '@connectrpc/connect'
 
+import { DEFAULT_STREAM_BASE_URL } from '../../constants'
 import type { Event } from '../../gen/social/mixi/application/model/v1/event_pb'
 import { ApplicationService } from '../../gen/social/mixi/application/service/application_stream/v1/service_pb'
-import { DEFAULT_STREAM_BASE_URL } from '../../constants'
 import type { TransportConfig } from '../../transport'
 import { createTransport } from '../../transport'
 import { isPingEvent, resolveOnError } from '../types'
