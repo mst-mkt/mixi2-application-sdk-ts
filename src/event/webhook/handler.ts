@@ -12,6 +12,8 @@ const TIMESTAMP_HEADER = 'x-mixi2-application-event-timestamp'
 export type WebhookHandlerConfig = {
   /** 署名検証に使用する公開鍵 */
   readonly signaturePublicKey: string
+  /** イベントを同期的に処理する */
+  readonly syncHandling?: boolean
   /** エラー発生時のコールバック (省略時は標準エラー出力にログを出力) */
   readonly onError?: OnErrorHandler
 }
@@ -23,6 +25,10 @@ type WebhookHandler = (request: Request) => Promise<Response>
  *
  * 受信したリクエストの署名検証とタイムスタンプ検証を行い、
  * 検証に成功したイベントを {@link EventHandler} に渡す
+ *
+ * デフォルトではイベントを非同期で処理し、レスポンスを速やかに返す。
+ * サーバーレス環境など、レスポンス後にプロセスが終了する環境では
+ * `syncHandling: true` を指定して同期的に処理する
  *
  * @param config - 署名検証用の公開鍵などの設定
  * @param handler - イベントを処理する {@link EventHandler}
@@ -88,13 +94,15 @@ export const createWebhookHandler = (
 
     try {
       const sendEventRequest = fromBinary(SendEventRequestSchema, body)
+      const events = sendEventRequest.events.filter((event) => !isPingEvent(event))
 
-      for (const event of sendEventRequest.events) {
-        if (isPingEvent(event)) continue
-        try {
-          await handler.handle(event)
-        } catch (error) {
-          onError(error)
+      if (config.syncHandling) {
+        for (const event of events) {
+          await handler.handle(event).catch(onError)
+        }
+      } else {
+        for (const event of events) {
+          void handler.handle(event).catch(onError)
         }
       }
     } catch {
