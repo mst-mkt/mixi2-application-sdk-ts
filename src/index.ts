@@ -1,3 +1,11 @@
+/**
+ * mixi2 Application SDK for TypeScript
+ *
+ * 認証・APIクライアント・イベントハンドリングを提供する
+ *
+ * @module
+ */
+
 export { createAuthenticator, createAuthInterceptor } from './auth'
 export type { AuthConfig, Authenticator } from './auth'
 
