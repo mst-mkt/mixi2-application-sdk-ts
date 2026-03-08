@@ -9,6 +9,7 @@ export type EventHandler = {
   readonly handle: (event: Event) => Promise<void>
 }
 
+/** Callback invoked when an error occurs during event processing. */
 export type OnErrorHandler = (error: unknown) => void
 
 const defaultOnError: OnErrorHandler = (error) => {

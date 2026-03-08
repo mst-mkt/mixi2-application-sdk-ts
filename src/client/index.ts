@@ -14,10 +14,12 @@ import { ApplicationService } from '../gen/social/mixi/application/service/appli
 import type { TransportConfig } from '../transport'
 import { createTransport } from '../transport'
 
+/** Configuration for creating a mixi2 API client. */
 export type ClientConfig = Omit<TransportConfig, 'baseUrl'> & {
   readonly baseUrl?: string
 }
 
+/** A typed connect-es client for the mixi2 Application Service. */
 export type Mixi2Client = Client<typeof ApplicationService>
 
 /** createMixi2Client creates a typed client for the mixi2 Application API. */

@@ -5,6 +5,7 @@ import type {
 } from '../gen/social/mixi/application/model/v1/event_pb'
 import type { EventHandler } from './types'
 
+/** Map of event type handlers for processing mixi2 events. */
 export type EventHandlers = {
   readonly postCreated?: (event: PostCreatedEvent, rawEvent: Event) => Promise<void> | void
   readonly chatMessageReceived?: (
@@ -13,6 +14,7 @@ export type EventHandlers = {
   ) => Promise<void> | void
 }
 
+/** createEventHandler creates an {@link EventHandler} from per-event-type handler functions. */
 export const createEventHandler = (handlers: EventHandlers): EventHandler => ({
   handle: async (event) => {
     if (event.body.case === 'postCreatedEvent') {

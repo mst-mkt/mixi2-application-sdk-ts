@@ -8,6 +8,7 @@ import { verifySignature, verifyTimestamp } from './verify'
 const SIGNATURE_HEADER = 'x-mixi2-application-event-signature'
 const TIMESTAMP_HEADER = 'x-mixi2-application-event-timestamp'
 
+/** Configuration for creating a webhook event handler. */
 export type WebhookHandlerConfig = {
   readonly signaturePublicKey: string
   readonly onError?: OnErrorHandler

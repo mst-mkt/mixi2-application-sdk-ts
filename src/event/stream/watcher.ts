@@ -12,12 +12,14 @@ import { calculateBackoff, sleep } from './backoff'
 
 const DEFAULT_MAX_RETRIES = 3
 
+/** Configuration for creating a streaming event watcher. */
 export type StreamWatcherConfig = Omit<TransportConfig, 'baseUrl'> & {
   readonly baseUrl?: string
   readonly maxRetries?: number
   readonly onError?: OnErrorHandler
 }
 
+/** A streaming event watcher that auto-reconnects on failure. */
 export type StreamWatcher = {
   readonly watch: (signal?: AbortSignal) => Promise<void>
 }
