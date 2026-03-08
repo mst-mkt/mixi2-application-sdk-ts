@@ -1,8 +1,8 @@
 import { fromBinary } from '@bufbuild/protobuf'
 
 import { SendEventRequestSchema } from '../../gen/social/mixi/application/service/client_endpoint/v1/service_pb'
-import { isPingEvent, resolveOnError } from '../types'
 import type { EventHandler, OnErrorHandler } from '../types'
+import { processEvents, resolveOnError } from '../utils'
 import { verifySignature, verifyTimestamp } from './verify'
 
 const SIGNATURE_HEADER = 'x-mixi2-application-event-signature'
@@ -104,26 +104,10 @@ export const createWebhookHandler = (
       return new Response('Failed to parse request body', { status: 400 })
     }
 
-    const events = sendEventRequest.events.filter((event) => !isPingEvent(event))
-
     if (config.syncHandling) {
-      for (const event of events) {
-        try {
-          await handler.handle(event)
-        } catch (error) {
-          onError(error)
-        }
-      }
+      await processEvents(sendEventRequest.events, handler, onError)
     } else {
-      void (async () => {
-        for (const event of events) {
-          try {
-            await handler.handle(event)
-          } catch (error) {
-            onError(error)
-          }
-        }
-      })()
+      void processEvents(sendEventRequest.events, handler, onError)
     }
 
     return new Response(null, { status: 204 })
