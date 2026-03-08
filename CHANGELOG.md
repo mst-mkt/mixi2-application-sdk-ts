@@ -1,5 +1,18 @@
 # @mst-mkt/mixi2-application-sdk-ts
 
+## 0.2.2
+
+### Patch Changes
+
+- [#7](https://github.com/mst-mkt/mixi2-application-sdk-ts/pull/7) [`c273675`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/c27367506dd24790ce3f2a42fe184670296bdbad) Thanks [@mst-mkt](https://github.com/mst-mkt)! - feat: Webhook ハンドラーに `syncHandling` オプションを追加し、デフォルトでイベントを非同期処理するように変更
+
+- [#7](https://github.com/mst-mkt/mixi2-application-sdk-ts/pull/7) [`851a4a9`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/851a4a9e3825f1e89ddb84e5016d4d60e92ad43b) Thanks [@mst-mkt](https://github.com/mst-mkt)! - fix: ストリームウォッチャーの再接続ロジックを公式仕様に準拠させる
+
+  - ストリームが正常終了した場合に再接続するよう修正
+  - 成功した接続の後にリトライカウンターをリセットするよう修正
+
+- [#7](https://github.com/mst-mkt/mixi2-application-sdk-ts/pull/7) [`c92aa1b`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/c92aa1b4e8fa12b98d3aaac1235aa246228b9172) Thanks [@mst-mkt](https://github.com/mst-mkt)! - fix: Webhook ハンドラーにリクエストボディ読み取りエラー (500) と protobuf パースエラー (400) のレスポンスを追加
+
 ## 0.2.1
 
 ### Patch Changes
