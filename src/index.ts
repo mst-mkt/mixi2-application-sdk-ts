@@ -1,7 +1,7 @@
 /**
- * mixi2 Application SDK for TypeScript.
+ * mixi2 Application SDK for TypeScript
  *
- * Provides authentication, API client, and event handling for the mixi2 Application API.
+ * 認証・APIクライアント・イベントハンドリングを提供する
  *
  * @module
  */

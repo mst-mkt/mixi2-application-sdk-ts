@@ -12,14 +12,14 @@ import { calculateBackoff, sleep } from './backoff'
 
 const DEFAULT_MAX_RETRIES = 3
 
-/** Configuration for creating a streaming event watcher. */
+/** ストリームイベントウォッチャーの作成設定 */
 export type StreamWatcherConfig = Omit<TransportConfig, 'baseUrl'> & {
   readonly baseUrl?: string
   readonly maxRetries?: number
   readonly onError?: OnErrorHandler
 }
 
-/** A streaming event watcher that auto-reconnects on failure. */
+/** 自動再接続機能付きのストリームイベントウォッチャー */
 export type StreamWatcher = {
   readonly watch: (signal?: AbortSignal) => Promise<void>
 }
@@ -54,7 +54,7 @@ const consumeStream = async (
   }
 }
 
-/** createStreamWatcher creates a streaming event watcher with auto-reconnect. */
+/** 自動再接続機能付きのストリームイベントウォッチャーを作成する */
 export const createStreamWatcher = (
   config: StreamWatcherConfig,
   handler: EventHandler,

@@ -1,7 +1,7 @@
 /**
- * Authentication utilities for the mixi2 Application API.
+ * mixi2 Application API の認証ユーティリティ
  *
- * Provides OAuth2 client credentials authentication and connect-es interceptors.
+ * OAuth2 Client Credentials 認証と認証用 Interceptor を提供する
  *
  * @module
  */

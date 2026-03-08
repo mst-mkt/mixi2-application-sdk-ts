@@ -1,7 +1,7 @@
 /**
- * Stream event watcher for the mixi2 Application API.
+ * mixi2 Application API のストリームイベントウォッチャー
  *
- * Provides utilities to watch and process gRPC server streaming events.
+ * gRPC サーバーストリーミングイベントの監視と処理を行うユーティリティを提供する
  *
  * @module
  */

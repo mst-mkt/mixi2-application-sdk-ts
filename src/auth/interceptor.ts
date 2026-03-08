@@ -1,6 +1,6 @@
 import type { Interceptor } from '@connectrpc/connect'
 
-/** createAuthInterceptor creates an Interceptor that sets the Authorization header. */
+/** Authorization ヘッダーを自動設定する Interceptor を作成する */
 export const createAuthInterceptor = (getToken: () => Promise<string>): Interceptor => {
   return (next) => async (req) => {
     const token = await getToken()

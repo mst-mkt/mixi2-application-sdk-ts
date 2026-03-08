@@ -1,6 +1,6 @@
 import type { Interceptor } from '@connectrpc/connect'
 
-/** Configuration for OAuth2 client credentials authentication. */
+/** OAuth2 Client Credentials 認証の設定 */
 export type AuthConfig = {
   readonly clientId: string
   readonly clientSecret: string
@@ -12,7 +12,7 @@ export type TokenResponse = {
   readonly expiresAt: number
 }
 
-/** Authenticator that manages access tokens and creates connect-es interceptors. */
+/** アクセストークンの管理と認証用 Interceptor の生成を行うオブジェクト */
 export type Authenticator = {
   readonly getAccessToken: () => Promise<string>
   readonly createInterceptor: () => Interceptor

@@ -4,7 +4,7 @@ import type { AuthConfig, Authenticator, TokenResponse } from './types'
 
 const TOKEN_EXPIRY_BUFFER_MS = 60_000
 
-/** createAuthenticator creates an Authenticator that manages OAuth2 Client Credentials tokens. */
+/** OAuth2 Client Credentials 方式でアクセストークンを管理する {@link Authenticator} を作成する */
 export const createAuthenticator = (config: AuthConfig): Authenticator => {
   let cached: TokenResponse | undefined
 

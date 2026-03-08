@@ -1,7 +1,7 @@
 /**
- * Event handling for mixi2 Application API notifications.
+ * mixi2 Application API のイベントハンドリング
  *
- * Provides types and utilities for handling webhook and stream events.
+ * Webhook およびストリームイベントを処理するための型とユーティリティを提供する
  *
  * @module
  */

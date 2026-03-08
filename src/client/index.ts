@@ -1,7 +1,7 @@
 /**
- * Typed client for the mixi2 Application API.
+ * mixi2 Application API の型付きクライアント
  *
- * Provides a connect-es based client to interact with the mixi2 Application Service.
+ * connect-es ベースのクライアントを提供する
  *
  * @module
  */
@@ -14,15 +14,15 @@ import { ApplicationService } from '../gen/social/mixi/application/service/appli
 import type { TransportConfig } from '../transport'
 import { createTransport } from '../transport'
 
-/** Configuration for creating a mixi2 API client. */
+/** mixi2 API クライアントの作成設定 */
 export type ClientConfig = Omit<TransportConfig, 'baseUrl'> & {
   readonly baseUrl?: string
 }
 
-/** A typed connect-es client for the mixi2 Application Service. */
+/** mixi2 Application Service の型付き connect-es クライアント */
 export type Mixi2Client = Client<typeof ApplicationService>
 
-/** createMixi2Client creates a typed client for the mixi2 Application API. */
+/** mixi2 Application API の型付きクライアントを作成する */
 export const createMixi2Client = (config: ClientConfig): Mixi2Client => {
   return createClient(
     ApplicationService,

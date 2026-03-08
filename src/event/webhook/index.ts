@@ -1,7 +1,7 @@
 /**
- * Webhook event handler for the mixi2 Application API.
+ * mixi2 Application API の Webhook イベントハンドラー
  *
- * Provides utilities to verify and process incoming webhook requests.
+ * 受信した Webhook リクエストの署名検証と処理を行うユーティリティを提供する
  *
  * @module
  */
