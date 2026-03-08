@@ -1,3 +1,11 @@
+/**
+ * Typed client for the mixi2 Application API.
+ *
+ * Provides a connect-es based client to interact with the mixi2 Application Service.
+ *
+ * @module
+ */
+
 import type { Client } from '@connectrpc/connect'
 import { createClient } from '@connectrpc/connect'
 
