@@ -1,0 +1,42 @@
+{
+  "version": "5",
+  "specifiers": {
+    "jsr:@mst-mkt/mixi2-application-sdk-ts@~0.2.2": "0.2.2",
+    "npm:@bufbuild/protobuf@^2.7.0": "2.11.0",
+    "npm:@connectrpc/connect-node@^2.1.0": "2.1.1_@bufbuild+protobuf@2.11.0_@connectrpc+connect@2.1.1__@bufbuild+protobuf@2.11.0",
+    "npm:@connectrpc/connect@^2.1.0": "2.1.1_@bufbuild+protobuf@2.11.0"
+  },
+  "jsr": {
+    "@mst-mkt/mixi2-application-sdk-ts@0.2.2": {
+      "integrity": "22140409e484f6d007eb9423368dfb9134c77d03a664105a1e4825fa18a53c70",
+      "dependencies": [
+        "npm:@bufbuild/protobuf",
+        "npm:@connectrpc/connect",
+        "npm:@connectrpc/connect-node"
+      ]
+    }
+  },
+  "npm": {
+    "@bufbuild/protobuf@2.11.0": {
+      "integrity": "sha512-sBXGT13cpmPR5BMgHE6UEEfEaShh5Ror6rfN3yEK5si7QVrtZg8LEPQb0VVhiLRUslD2yLnXtnRzG035J/mZXQ=="
+    },
+    "@connectrpc/connect-node@2.1.1_@bufbuild+protobuf@2.11.0_@connectrpc+connect@2.1.1__@bufbuild+protobuf@2.11.0": {
+      "integrity": "sha512-s3TfsI1XF+n+1z6MBS9rTnFsxxR4Rw5wmdEnkQINli81ESGxcsfaEet8duzq8LVuuCupmhUsgpRo0Nv9pZkufg==",
+      "dependencies": [
+        "@bufbuild/protobuf",
+        "@connectrpc/connect"
+      ]
+    },
+    "@connectrpc/connect@2.1.1_@bufbuild+protobuf@2.11.0": {
+      "integrity": "sha512-JzhkaTvM73m2K1URT6tv53k2RwngSmCXLZJgK580qNQOXRzZRR/BCMfZw3h+90JpnG6XksP5bYT+cz0rpUzUWQ==",
+      "dependencies": [
+        "@bufbuild/protobuf"
+      ]
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@mst-mkt/mixi2-application-sdk-ts@~0.2.2"
+    ]
+  }
+}

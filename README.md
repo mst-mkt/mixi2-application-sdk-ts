@@ -101,18 +101,18 @@ const authenticator = createAuthenticator({
 const client = createMixi2Client({ authenticator })
 ```
 
-## イベント受信
+## 実装例
 
-イベントの受信方法として Webhook と gRPC ストリーミングの2つをサポートしています。
-
-- [Webhook の実装例](./example/webhook)
-- TODO: [gRPC ストリーミングの実装例](./example/stream)
+- [Deno Deploy](./example/deno-deploy) - Webhook + gRPC Stream (ローカル)
+- [Vercel](./example/vercel) - Webhook + gRPC Stream (ローカル)
+- [Cloudflare Workers](./example/cloudflare-workers) - Webhook のみ
 
 ## 開発
 
 ### ツール
 
 - [mise](https://mise.jdx.dev)
+  - Deno
   - Node.js
   - pnpm
   - pinact

@@ -1,0 +1,14 @@
+{
+  "tasks": {
+    "dev": "deno run --env --watch --allow-env --allow-net main.ts",
+    "deploy": "deno deploy --app=mixi2-example-deno-deploy --prod"
+  },
+  "nodeModulesDir": "manual",
+  "imports": {
+    "@mst-mkt/mixi2-application-sdk-ts": "jsr:@mst-mkt/mixi2-application-sdk-ts@^0.2.2"
+  },
+  "deploy": {
+    "org": "mst-mkt",
+    "app": "mixi2-example-deno-deploy"
+  }
+}

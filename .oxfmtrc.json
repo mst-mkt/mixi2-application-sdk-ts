@@ -1,6 +1,12 @@
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
-  "ignorePatterns": ["dist/**", "src/gen/**", ".changeset/**", "CHANGELOG.md"],
+  "ignorePatterns": [
+    "dist/**",
+    "src/gen/**",
+    ".changeset/**",
+    "CHANGELOG.md",
+    "worker-configuration.d.ts"
+  ],
 
   "semi": false,
   "singleQuote": true,

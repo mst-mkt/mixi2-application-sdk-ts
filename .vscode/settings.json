@@ -47,5 +47,7 @@
     "editor.defaultFormatter": "oxc.oxc-vscode"
   },
 
-  "oxc.typeAware": true
+  "oxc.typeAware": true,
+
+  "deno.enablePaths": ["example/deno-deploy"]
 }

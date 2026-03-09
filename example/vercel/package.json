@@ -1,16 +1,18 @@
 {
-  "name": "example-webhook",
+  "name": "mixi2-example-vercel",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "cd ../.. && pnpm run build"
+    "build": "cd ../.. && pnpm build",
+    "dev": "tsx --watch --env-file=.env api/index.ts"
   },
   "dependencies": {
     "@mst-mkt/mixi2-application-sdk-ts": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.15.0",
+    "tsx": "^4.19.0",
     "typescript": "^5.9.3"
   }
 }

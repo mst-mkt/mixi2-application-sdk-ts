@@ -49,6 +49,7 @@
   },
   "scripts": {
     "generate": "buf generate",
+    "dev": "tsdown --watch",
     "build": "tsdown",
     "check:lint": "oxlint",
     "check:fmt": "oxfmt --check",

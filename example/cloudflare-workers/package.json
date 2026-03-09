@@ -1,0 +1,17 @@
+{
+  "name": "mixi2-example-cloudflare-workers",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@mst-mkt/mixi2-application-sdk-ts": "workspace:*"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250313.0",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.14.0"
+  }
+}

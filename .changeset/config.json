@@ -7,5 +7,5 @@
   "fixed": [],
   "linked": [],
   "updateInternalDependencies": "patch",
-  "ignore": ["example-*"]
+  "ignore": ["mixi2-example-*"]
 }
