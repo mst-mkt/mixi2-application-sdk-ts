@@ -1,5 +1,11 @@
 # @mst-mkt/mixi2-application-sdk-ts
 
+## 0.2.3
+
+### Patch Changes
+
+- [`7320fb6`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/7320fb6694f425d181ca0d91ad25e5f53e1c4cb0) Thanks [@mst-mkt](https://github.com/mst-mkt)! - internal refactoring: イベント処理ロジックの共通化と型定義の整理
+
 ## 0.2.2
 
 ### Patch Changes
