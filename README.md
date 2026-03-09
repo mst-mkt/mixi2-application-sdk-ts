@@ -3,8 +3,8 @@
 mixi2 の Application API を利用するための TypeScript SDK です。
 
 > [!NOTE]
-> これは非公式の SDK です。
-> 以下を参考に作成されています。
+> この SDK は mixi 公式ではありません。
+> 以下の公式リソースをもとに開発しています。
 >
 > - [mixi2 Developer Platform 公式ドキュメント](https://developer.mixi.social/docs)
 > - [mixigroup/mixi2-api](https://github.com/mixigroup/mixi2-api)
@@ -14,7 +14,7 @@ mixi2 の Application API を利用するための TypeScript SDK です。
 
 ### npm
 
-[![npm version](https://npmx.dev/api/registry/badge/version/@mst-mkt/mixi2-application-sdk-ts)](https://www.npmjs.com/package/@mst-mkt/mixi2-application-sdk-ts) [![License](https://npmx.dev/api/registry/badge/license/@mst-mkt/mixi2-application-sdk-ts)](./LICENSE) ![Install size](https://npmx.dev/api/registry/badge/size/@mst-mkt/mixi2-application-sdk-ts) ![Downloads](https://npmx.dev/api/registry/badge/downloads/@mst-mkt/mixi2-application-sdk-ts)
+[![npm version](https://npmx.dev/api/registry/badge/version/@mst-mkt/mixi2-application-sdk-ts)](https://npmx.dev/package/@mst-mkt/mixi2-application-sdk-ts) [![License](https://npmx.dev/api/registry/badge/license/@mst-mkt/mixi2-application-sdk-ts)](./LICENSE) [![Install size](https://npmx.dev/api/registry/badge/size/@mst-mkt/mixi2-application-sdk-ts)](https://npmx.dev/package/@mst-mkt/mixi2-application-sdk-ts) [![Downloads](https://npmx.dev/api/registry/badge/downloads/@mst-mkt/mixi2-application-sdk-ts)](https://npmx.dev/package/@mst-mkt/mixi2-application-sdk-ts?modal=chart)
 
 ```bash
 pnpm add @mst-mkt/mixi2-application-sdk-ts
@@ -22,43 +22,17 @@ pnpm add @mst-mkt/mixi2-application-sdk-ts
 
 ### JSR
 
-[![JSR](https://jsr.io/badges/@mst-mkt/mixi2-application-sdk-ts)](https://jsr.io/@mst-mkt/mixi2-application-sdk-ts) [![JSR](https://jsr.io/badges/@mst-mkt/mixi2-application-sdk-ts/total-downloads)](https://jsr.io/@mst-mkt/mixi2-application-sdk-ts) [![JSR Score](https://jsr.io/badges/@mst-mkt/mixi2-application-sdk-ts/score)](https://jsr.io/@mst-mkt/mixi2-application-sdk-ts)
+[![JSR](https://jsr.io/badges/@mst-mkt/mixi2-application-sdk-ts)](https://jsr.io/@mst-mkt/mixi2-application-sdk-ts) [![JSR](https://jsr.io/badges/@mst-mkt/mixi2-application-sdk-ts/total-downloads)](https://jsr.io/@mst-mkt/mixi2-application-sdk-ts/versions) [![JSR Score](https://jsr.io/badges/@mst-mkt/mixi2-application-sdk-ts/score)](https://jsr.io/@mst-mkt/mixi2-application-sdk-ts/score)
 
 ```bash
-pnpm add jsr:@mst-mkt/mixi2-application-sdk-ts
+deno add jsr:@mst-mkt/mixi2-application-sdk-ts
 ```
-
-## 機能
-
-### モジュール
-
-| モジュール                                        | 機能                                                              |
-| ------------------------------------------------- | ----------------------------------------------------------------- |
-| `@mst-mkt/mixi2-application-sdk-ts/auth`          | OAuth2 Client Credentials 認証                                    |
-| `@mst-mkt/mixi2-application-sdk-ts/client`        | mixi2 Application API クライアント (`@connectrpc/connect` を使用) |
-| `@mst-mkt/mixi2-application-sdk-ts/event/webhook` | Webhook によるイベント受信                                        |
-| `@mst-mkt/mixi2-application-sdk-ts/event/stream`  | gRPC ストリーミングによるイベント受信                             |
-
-### API メソッド
-
-`createMixi2Client()` で作成したクライアントから利用できます。
-
-| メソッド                  | 説明                                        |
-| ------------------------- | ------------------------------------------- |
-| `getUsers`                | ユーザー情報の取得                          |
-| `getPosts`                | ポスト情報の取得                            |
-| `createPost`              | ポストの作成 (リプライ, 引用, メディア添付) |
-| `initiatePostMediaUpload` | メディアアップロードの開始                  |
-| `getPostMediaStatus`      | メディアのアップロード状態の確認            |
-| `sendChatMessage`         | チャットメッセージの送信                    |
-| `getStamps`               | スタンプセットの取得                        |
-| `addStampToPost`          | ポストへのスタンプの追加                    |
 
 ## 環境サポート
 
-このライブラリは以下の API を使用しているため、環境により一部機能が利用できない場合があります。
+このライブラリは以下のランタイム API に依存しており、環境によって利用できる機能が異なります。
 
-- [`node:http2`](https://nodejs.org/api/http2.html): gRPC のストリーミングに使用 (`@connectrpc/connect-node`)
+- [`node:http2`](https://nodejs.org/api/http2.html): gRPC ストリーミングに使用
 - [`crypto.subtle`](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto): Webhook の署名検証に使用
 
 | 環境               | `auth` | `client` | `event/webhook` | `event/stream` |
@@ -68,7 +42,7 @@ pnpm add jsr:@mst-mkt/mixi2-application-sdk-ts
 | Bun                | ✅     | ✅       | ✅              | ✅             |
 | Cloudflare Workers | ✅     | ❌       | ✅              | ❌             |
 
-### 詳細な対応状況
+<details><summary>詳細な対応状況</summary>
 
 - Node.js: 18.4.0 以降
   - `crypto.subtle`: 18.4.0 以降 (ref: https://nodejs.org/en/blog/release/v18.4.0#notable-changes)
@@ -83,15 +57,30 @@ pnpm add jsr:@mst-mkt/mixi2-application-sdk-ts
   - `crypto.subtle`: 2023-04-28 以降 (ref: https://developers.cloudflare.com/workers/platform/changelog/#2023-04-28)
   - `node:http2`: 非対応 (ref: https://developers.cloudflare.com/workers/runtime-apis/nodejs/#supported-nodejs-apis)
 
-また、ランタイムが対応している場合でも、サーバーレス環境などでストリーム接続が制限されている場合があります。
-使用する環境に応じて、Webhook と gRPC ストリーミングのどちらかを選択してください。
+</details>
 
-## セットアップ
+> [!TIP]
+> サーバーレス環境ではランタイムが対応していても gRPC ストリーミングが利用できない場合があります。環境に応じて Webhook と gRPC ストリーミングを使い分けてください。
 
-認証とクライアントの作成は、Webhook・gRPC どちらの方式でも共通です。
+## 機能
+
+| モジュール                                        | 説明                                  |
+| ------------------------------------------------- | ------------------------------------- |
+| `@mst-mkt/mixi2-application-sdk-ts/auth`          | OAuth2 Client Credentials 認証        |
+| `@mst-mkt/mixi2-application-sdk-ts/client`        | mixi2 Application API クライアント    |
+| `@mst-mkt/mixi2-application-sdk-ts/event`         | イベントハンドラーの定義              |
+| `@mst-mkt/mixi2-application-sdk-ts/event/webhook` | Webhook によるイベント受信            |
+| `@mst-mkt/mixi2-application-sdk-ts/event/stream`  | gRPC ストリーミングによるイベント受信 |
+
+## 使い方
+
+### API
+
+`createAuthenticator` で認証情報を設定し、`createMixi2Client` で API クライアントを作成します。
 
 ```typescript
-import { createAuthenticator, createMixi2Client } from '@mst-mkt/mixi2-application-sdk-ts'
+import { createAuthenticator } from '@mst-mkt/mixi2-application-sdk-ts/auth'
+import { createMixi2Client } from '@mst-mkt/mixi2-application-sdk-ts/client'
 
 const authenticator = createAuthenticator({
   clientId: CLIENT_ID,
@@ -99,31 +88,73 @@ const authenticator = createAuthenticator({
 })
 
 const client = createMixi2Client({ authenticator })
+
+const { posts } = await client.getPosts({ postIdList: ['5efb4595-fe2d-4c52-b078-b85020385955'] })
 ```
+
+### Event Handling
+
+mixi2 からのイベント (投稿作成, チャット受信) を処理するハンドラーを定義します。
+Webhook と gRPC ストリーミングの両方で共通のハンドラーを利用できます。
+
+```typescript
+import { createEventHandler } from '@mst-mkt/mixi2-application-sdk-ts/event'
+
+const eventHandler = createEventHandler({
+  chatMessageReceived: async ({ message }) => {
+    // チャット受信時の処理
+  },
+  postCreated: async ({ post }) => {
+    // 投稿 (引用, メンション, リプライ) 作成時の処理
+  },
+})
+```
+
+#### Webhook
+
+イベントハンドラーと署名検証用の公開鍵から Webhook ハンドラーを作成します。
+
+```typescript
+import { createWebhookHandler } from '@mst-mkt/mixi2-application-sdk-ts/event/webhook'
+
+const webhookHandler = createWebhookHandler(
+  { signaturePublicKey: SIGNATURE_PUBLIC_KEY },
+  eventHandler,
+)
+```
+
+返り値は `(req: Request) => Promise<Response>` 型の関数で、Web 標準の Request / Response を使う任意の環境で動作します。
+
+#### gRPC Stream
+
+イベントハンドラーと認証情報から gRPC ストリーミングのウォッチャーを作成します。
+
+```typescript
+import { createStreamWatcher } from '@mst-mkt/mixi2-application-sdk-ts/event/stream'
+
+const streamWatcher = createStreamWatcher({ authenticator }, eventHandler)
+await streamWatcher.watch()
+```
+
+`watch()` は `AbortSignal` を渡すことで、任意のタイミングで監視を停止できます。
+
+### 環境変数
+
+| 変数名                 | 使用先                 | 取得元                                                                                 |
+| ---------------------- | ---------------------- | -------------------------------------------------------------------------------------- |
+| `CLIENT_ID`            | `createAuthenticator`  | [Developer Platform](https://developer.mixi.social/docs) > アプリケーション > 認証情報 |
+| `CLIENT_SECRET`        | `createAuthenticator`  | [Developer Platform](https://developer.mixi.social/docs) > アプリケーション > 認証情報 |
+| `SIGNATURE_PUBLIC_KEY` | `createWebhookHandler` | [Developer Platform](https://developer.mixi.social/docs) > アプリケーション > Webhook  |
 
 ## 実装例
 
-- [Deno Deploy](./example/deno-deploy) - Webhook + gRPC Stream (ローカル)
-- [Vercel](./example/vercel) - Webhook + gRPC Stream (ローカル)
+- [Deno Deploy](./example/deno-deploy) - Webhook (デプロイ) / gRPC Stream (ローカル開発)
+- [Vercel](./example/vercel) - Webhook (デプロイ) / gRPC Stream (ローカル開発)
 - [Cloudflare Workers](./example/cloudflare-workers) - Webhook のみ
 
 ## 開発
 
-### ツール
-
-- [mise](https://mise.jdx.dev)
-  - Deno
-  - Node.js
-  - pnpm
-  - pinact
-
-### スクリプト
-
-```bash
-pnpm generate  # proto から TypeScript コードを生成
-pnpm build     # ビルド
-pnpm test      # テスト
-```
+[CONTRIBUTING.md](CONTRIBUTING.md) を参照してください。
 
 ## ライセンス
 
