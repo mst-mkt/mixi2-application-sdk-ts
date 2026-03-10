@@ -1,5 +1,11 @@
 # @mst-mkt/mixi2-application-sdk-ts
 
+## 0.3.0
+
+### Minor Changes
+
+- [`63f599b`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/63f599b9466f56332cf6aabed0d00489fc48a9f1) Thanks [@mst-mkt](https://github.com/mst-mkt)! - feat: カスタム Transport を指定できるように
+
 ## 0.2.3
 
 ### Patch Changes
