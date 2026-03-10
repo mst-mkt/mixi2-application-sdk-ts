@@ -15,3 +15,5 @@ export type { ClientConfig, Mixi2Client } from './client'
 export { DEFAULT_BASE_URL, DEFAULT_TOKEN_URL, DEFAULT_STREAM_BASE_URL } from './constants'
 
 export type { EventHandler } from './event'
+
+export type { TransportFactory } from './transport'
