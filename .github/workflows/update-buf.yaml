@@ -1,0 +1,95 @@
+name: update-buf
+
+on:
+  schedule:
+    - cron: '0 11 * * *' # JST 20:00
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.parse.outputs.matrix }}
+      has_targets: ${{ steps.parse.outputs.has_targets }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: parse buf.gen.yaml
+        id: parse
+        run: |
+          matrix=$(yq -o=json -I=0 '[.inputs[] | select(.git_repo and .tag) | {
+            "repo": (.git_repo | sub(".*github\.com/"; "") | sub("\.git$"; "")),
+            "currentTag": .tag,
+            "gitRepo": .git_repo
+          }]' buf.gen.yaml)
+          echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
+          if [ "$matrix" = "[]" ]; then
+            echo "has_targets=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_targets=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  update:
+    needs: detect
+    if: needs.detect.outputs.has_targets == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJson(needs.detect.outputs.matrix) }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: get latest tag
+        id: latest
+        run: echo "tag=$(gh api repos/${{ matrix.repo }}/releases/latest --jq '.tag_name')" >> "$GITHUB_OUTPUT"
+
+      - name: check if update needed
+        id: check
+        run: |
+          if [ "${{ matrix.currentTag }}" = "${{ steps.latest.outputs.tag }}" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: setup pnpm
+        if: steps.check.outputs.skip != 'true'
+        uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4.3.0
+        with:
+          run_install: true
+
+      - name: setup node.js
+        if: steps.check.outputs.skip != 'true'
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version: '24.14.0'
+          cache: 'pnpm'
+
+      - name: update buf.gen.yaml
+        if: steps.check.outputs.skip != 'true'
+        run: yq -i "(.inputs[] | select(.git_repo == \"${{ matrix.gitRepo }}\")).tag = \"${{ steps.latest.outputs.tag }}\"" buf.gen.yaml
+
+      - name: generate code
+        if: steps.check.outputs.skip != 'true'
+        run: pnpm run generate
+
+      - name: create pull request
+        if: steps.check.outputs.skip != 'true'
+        uses: peter-evans/create-pull-request@c0f553fe549906ede9cf27b5156039d195d2ece0 # v8.1.0
+        with:
+          branch: update-proto/${{ matrix.repo }}/${{ steps.latest.outputs.tag }}
+          delete-branch: true
+          title: 'chore(buf): update ${{ matrix.repo }} to ${{ steps.latest.outputs.tag }}'
+          body: |
+            Updates `${{ matrix.repo }}` from `${{ matrix.currentTag }}` to `${{ steps.latest.outputs.tag }}`
+
+            - [Compare changes](https://github.com/${{ matrix.repo }}/compare/${{ matrix.currentTag }}...${{ steps.latest.outputs.tag }})
+          commit-message: 'chore(buf): update ${{ matrix.repo }} to ${{ steps.latest.outputs.tag }}'
+          labels: dependencies
