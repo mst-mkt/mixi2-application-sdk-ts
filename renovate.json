@@ -7,6 +7,13 @@
   "includePaths": ["package.json", "mise.toml", ".github/**"],
   "packageRules": [
     {
+      "description": "Security: no delay for vulnerability fixes",
+      "matchCategories": ["security"],
+      "schedule": ["at any time"],
+      "minimumReleaseAge": "0 days",
+      "automerge": true
+    },
+    {
       "description": "Auto Merge (GitHub Actions)",
       "matchManagers": ["github-actions"],
       "matchUpdateTypes": ["minor", "patch", "digest"],
