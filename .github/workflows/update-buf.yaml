@@ -49,6 +49,8 @@ jobs:
       - name: get latest tag
         id: latest
         run: echo "tag=$(gh api repos/${{ matrix.repo }}/releases/latest --jq '.tag_name')" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: check if update needed
         id: check
