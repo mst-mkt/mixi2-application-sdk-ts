@@ -11,6 +11,7 @@
       "matchCategories": ["security"],
       "schedule": ["at any time"],
       "minimumReleaseAge": "0 days",
+      "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
     },
     {
