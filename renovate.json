@@ -1,0 +1,36 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", "helpers:pinGitHubActionDigestsToSemver"],
+  "labels": ["dependencies"],
+  "schedule": ["every weekend"],
+  "minimumReleaseAge": "7 days",
+  "includePaths": ["package.json", "mise.toml", ".github/**"],
+  "packageRules": [
+    {
+      "description": "Security: no delay for vulnerability fixes",
+      "matchCategories": ["security"],
+      "schedule": ["at any time"],
+      "minimumReleaseAge": "0 days",
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+    {
+      "description": "Auto Merge (GitHub Actions)",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "automerge": true
+    },
+    {
+      "description": "Auto Merge (npm dev-dependencies)",
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+    {
+      "description": "Auto Merge (mise)",
+      "matchManagers": ["mise"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    }
+  ]
+}
