@@ -36,8 +36,7 @@ API クライアントを利用する場合は、以下も必要です。
 fetch の引数から Request オブジェクトを受け取り、Webhook ハンドラーに渡してイベントを処理します。
 
 ```typescript
-import { createEventHandler } from '@mst-mkt/mixi2-application-sdk-ts/event'
-import { createWebhookHandler } from '@mst-mkt/mixi2-application-sdk-ts/event/webhook'
+import { createEventHandler, createWebhookHandler } from '@mst-mkt/mixi2-application-sdk-ts'
 
 const eventHandler = createEventHandler({
   chatMessageReceived: async ({ message }) => {
@@ -159,8 +158,7 @@ export function createGrpcTransport(options: {
 `createMixi2Client` の `createTransport` オプションに上記の `createGrpcTransport` を渡します。SDK が認証用の interceptor を自動的に注入します。
 
 ```typescript
-import { createAuthenticator } from '@mst-mkt/mixi2-application-sdk-ts/auth'
-import { createMixi2Client } from '@mst-mkt/mixi2-application-sdk-ts/client'
+import { createAuthenticator, createMixi2Client } from '@mst-mkt/mixi2-application-sdk-ts'
 import { createGrpcTransport } from './transport'
 
 export default {

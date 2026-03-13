@@ -14,7 +14,7 @@ const TOKEN_EXPIRY_BUFFER_MS = 60_000
  *
  * @example
  * ```ts
- * import { createAuthenticator } from '@mst-mkt/mixi2-application-sdk-ts/auth'
+ * import { createAuthenticator } from '@mst-mkt/mixi2-application-sdk-ts'
  *
  * const authenticator = createAuthenticator({
  *   clientId: 'your-client-id',

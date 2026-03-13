@@ -15,11 +15,13 @@ Deno Deploy へのデプロイ例です。本番環境では Webhook、ローカ
 環境変数 `DENO_DEPLOYMENT_ID` の有無で、Deno Deploy 上とローカル環境を自動的に切り替えます。
 
 ```typescript
-import { createAuthenticator } from '@mst-mkt/mixi2-application-sdk-ts/auth'
-import { createMixi2Client } from '@mst-mkt/mixi2-application-sdk-ts/client'
-import { createEventHandler } from '@mst-mkt/mixi2-application-sdk-ts/event'
-import { createStreamWatcher } from '@mst-mkt/mixi2-application-sdk-ts/event/stream'
-import { createWebhookHandler } from '@mst-mkt/mixi2-application-sdk-ts/event/webhook'
+import {
+  createAuthenticator,
+  createMixi2Client,
+  createEventHandler,
+  createStreamWatcher,
+  createWebhookHandler,
+} from '@mst-mkt/mixi2-application-sdk-ts'
 
 const authenticator = createAuthenticator({
   clientId: Deno.env.get('CLIENT_ID')!,

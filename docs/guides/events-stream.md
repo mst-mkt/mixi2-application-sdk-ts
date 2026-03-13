@@ -17,9 +17,11 @@ gRPC Stream を利用するには以下の認証情報が必要です。
 ## Stream ウォッチャーの作成と開始
 
 ```typescript
-import { createAuthenticator } from '@mst-mkt/mixi2-application-sdk-ts/auth'
-import { createEventHandler } from '@mst-mkt/mixi2-application-sdk-ts/event'
-import { createStreamWatcher } from '@mst-mkt/mixi2-application-sdk-ts/event/stream'
+import {
+  createAuthenticator,
+  createEventHandler,
+  createStreamWatcher,
+} from '@mst-mkt/mixi2-application-sdk-ts'
 
 const authenticator = createAuthenticator({
   clientId: CLIENT_ID,

@@ -1,5 +1,4 @@
-import { createEventHandler } from '@mst-mkt/mixi2-application-sdk-ts/event'
-import { createWebhookHandler } from '@mst-mkt/mixi2-application-sdk-ts/event/webhook'
+import { createEventHandler, createWebhookHandler } from '@mst-mkt/mixi2-application-sdk-ts'
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {

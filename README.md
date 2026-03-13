@@ -78,8 +78,7 @@ This library includes documentation in the package. The best way to access it is
 `createAuthenticator` で認証情報を設定し、`createMixi2Client` で API クライアントを作成します。
 
 ```typescript
-import { createAuthenticator } from '@mst-mkt/mixi2-application-sdk-ts/auth'
-import { createMixi2Client } from '@mst-mkt/mixi2-application-sdk-ts/client'
+import { createAuthenticator, createMixi2Client } from '@mst-mkt/mixi2-application-sdk-ts'
 
 const authenticator = createAuthenticator({
   clientId: CLIENT_ID,
@@ -98,7 +97,7 @@ const { posts } = await client.getPosts({ postIdList: ['5efb4595-fe2d-4c52-b078-
 mixi2 からのイベント (投稿作成, チャット受信) を処理するハンドラーを定義します。Webhook と gRPC ストリーミングの両方で共通のハンドラーを利用できます。
 
 ```typescript
-import { createEventHandler } from '@mst-mkt/mixi2-application-sdk-ts/event'
+import { createEventHandler } from '@mst-mkt/mixi2-application-sdk-ts'
 
 const eventHandler = createEventHandler({
   chatMessageReceived: async ({ message }) => {
@@ -117,7 +116,7 @@ const eventHandler = createEventHandler({
 イベントハンドラーと署名検証用の公開鍵から Webhook ハンドラーを作成します。返り値は `(req: Request) => Promise<Response>` 型の関数で、Web 標準の Request / Response を使う任意の環境で動作します。
 
 ```typescript
-import { createWebhookHandler } from '@mst-mkt/mixi2-application-sdk-ts/event/webhook'
+import { createWebhookHandler } from '@mst-mkt/mixi2-application-sdk-ts'
 
 const webhookHandler = createWebhookHandler(
   { signaturePublicKey: SIGNATURE_PUBLIC_KEY },
@@ -132,7 +131,7 @@ const webhookHandler = createWebhookHandler(
 イベントハンドラーと認証情報から gRPC ストリーミングのウォッチャーを作成します。`watch()` は `AbortSignal` を渡すことで、任意のタイミングで監視を停止できます。
 
 ```typescript
-import { createStreamWatcher } from '@mst-mkt/mixi2-application-sdk-ts/event/stream'
+import { createStreamWatcher } from '@mst-mkt/mixi2-application-sdk-ts'
 
 const streamWatcher = createStreamWatcher({ authenticator }, eventHandler)
 await streamWatcher.watch()

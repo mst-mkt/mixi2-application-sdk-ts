@@ -36,8 +36,7 @@ type WebhookHandler = (request: Request) => Promise<Response>
  *
  * @example
  * ```ts
- * import { createEventHandler } from '@mst-mkt/mixi2-application-sdk-ts/event'
- * import { createWebhookHandler } from '@mst-mkt/mixi2-application-sdk-ts/event/webhook'
+ * import { createEventHandler, createWebhookHandler } from '@mst-mkt/mixi2-application-sdk-ts'
  *
  * const eventHandler = createEventHandler({
  *   postCreated: async ({ post }) => {

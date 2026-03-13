@@ -13,8 +13,7 @@ Webhook を利用するには以下の情報が必要です。
 ## Webhook ハンドラーの作成
 
 ```typescript
-import { createEventHandler } from '@mst-mkt/mixi2-application-sdk-ts/event'
-import { createWebhookHandler } from '@mst-mkt/mixi2-application-sdk-ts/event/webhook'
+import { createEventHandler, createWebhookHandler } from '@mst-mkt/mixi2-application-sdk-ts'
 
 const eventHandler = createEventHandler({
   postCreated: async ({ post, issuer }) => {
