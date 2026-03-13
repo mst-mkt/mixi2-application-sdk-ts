@@ -40,7 +40,7 @@ deno add jsr:@mst-mkt/mixi2-application-sdk-ts
 | Node.js            | ✅     | ✅       | ✅              | ✅             |
 | Deno               | ✅     | ✅       | ✅              | ✅             |
 | Bun                | ✅     | ✅       | ✅              | ✅             |
-| Cloudflare Workers | ✅     | ❌       | ✅              | ❌             |
+| Cloudflare Workers | ✅     | ⚠️       | ✅              | ❌             |
 
 <details><summary>詳細な対応状況</summary>
 
