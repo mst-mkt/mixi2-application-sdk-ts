@@ -40,7 +40,7 @@ deno add jsr:@mst-mkt/mixi2-application-sdk-ts
 | Node.js            | ✅     | ✅       | ✅              | ✅             |
 | Deno               | ✅     | ✅       | ✅              | ✅             |
 | Bun                | ✅     | ✅       | ✅              | ✅             |
-| Cloudflare Workers | ✅     | ❌       | ✅              | ❌             |
+| Cloudflare Workers | ✅     | ⚠️       | ✅              | ❌             |
 
 <details><summary>詳細な対応状況</summary>
 
@@ -53,28 +53,27 @@ deno add jsr:@mst-mkt/mixi2-application-sdk-ts
 - Bun: 0.5.7 以降
   - `crypto.subtle`: 0.5.7 以降 (ref: https://bun.sh/blog/bun-v0.5.7#changelog)
   - `node:http2`: 1.0.13 以降 (ref: https://bun.sh/blog/bun-v1.0.13#http2-client-support)
-- Cloudflare Workers: 非対応
+- Cloudflare Workers: 実験的対応
   - `crypto.subtle`: 2023-04-28 以降 (ref: https://developers.cloudflare.com/workers/platform/changelog/#2023-04-28)
   - `node:http2`: 非対応 (ref: https://developers.cloudflare.com/workers/runtime-apis/nodejs/#supported-nodejs-apis)
+    - `node:http2` を回避して利用する方法がある (ref: [docs/deployments/cloudflare-workers](./docs/deployments/cloudflare-workers.md#api-クライアントの利用-実験的))
 
 </details>
 
 > [!TIP]
 > サーバーレス環境ではランタイムが対応していても gRPC ストリーミングが利用できない場合があります。環境に応じて Webhook と gRPC ストリーミングを使い分けてください。
 
-## 機能
-
-| モジュール                                        | 説明                                  |
-| ------------------------------------------------- | ------------------------------------- |
-| `@mst-mkt/mixi2-application-sdk-ts/auth`          | OAuth2 Client Credentials 認証        |
-| `@mst-mkt/mixi2-application-sdk-ts/client`        | mixi2 Application API クライアント    |
-| `@mst-mkt/mixi2-application-sdk-ts/event`         | イベントハンドラーの定義              |
-| `@mst-mkt/mixi2-application-sdk-ts/event/webhook` | Webhook によるイベント受信            |
-| `@mst-mkt/mixi2-application-sdk-ts/event/stream`  | gRPC ストリーミングによるイベント受信 |
-
 ## 使い方
 
-### API
+詳細な使い方については [ドキュメント](./docs/getting-started.md) を参照してください。
+
+<details><summary>For LLM, Coding Agents</summary>
+
+This library includes documentation in the package. The best way to access it is to check the local node_modules. If that's not possible, you can refer to the documentation at [https://github.com/mst-mkt/mixi2-application-sdk-ts/tree/main/docs](https://github.com/mst-mkt/mixi2-application-sdk-ts/tree/main/docs).
+
+</details>
+
+### API クライアント
 
 `createAuthenticator` で認証情報を設定し、`createMixi2Client` で API クライアントを作成します。
 
@@ -92,10 +91,11 @@ const client = createMixi2Client({ authenticator })
 const { posts } = await client.getPosts({ postIdList: ['5efb4595-fe2d-4c52-b078-b85020385955'] })
 ```
 
-### Event Handling
+[API クライアントの詳細 >](./docs/guides/client.md)
 
-mixi2 からのイベント (投稿作成, チャット受信) を処理するハンドラーを定義します。
-Webhook と gRPC ストリーミングの両方で共通のハンドラーを利用できます。
+### イベント処理
+
+mixi2 からのイベント (投稿作成, チャット受信) を処理するハンドラーを定義します。Webhook と gRPC ストリーミングの両方で共通のハンドラーを利用できます。
 
 ```typescript
 import { createEventHandler } from '@mst-mkt/mixi2-application-sdk-ts/event'
@@ -110,9 +110,11 @@ const eventHandler = createEventHandler({
 })
 ```
 
-#### Webhook
+[イベント処理の詳細 >](./docs/guides/events.md)
 
-イベントハンドラーと署名検証用の公開鍵から Webhook ハンドラーを作成します。
+### Webhook
+
+イベントハンドラーと署名検証用の公開鍵から Webhook ハンドラーを作成します。返り値は `(req: Request) => Promise<Response>` 型の関数で、Web 標準の Request / Response を使う任意の環境で動作します。
 
 ```typescript
 import { createWebhookHandler } from '@mst-mkt/mixi2-application-sdk-ts/event/webhook'
@@ -123,11 +125,11 @@ const webhookHandler = createWebhookHandler(
 )
 ```
 
-返り値は `(req: Request) => Promise<Response>` 型の関数で、Web 標準の Request / Response を使う任意の環境で動作します。
+[Webhook の詳細 >](./docs/guides/events-webhook.md)
 
-#### gRPC Stream
+### gRPC Stream
 
-イベントハンドラーと認証情報から gRPC ストリーミングのウォッチャーを作成します。
+イベントハンドラーと認証情報から gRPC ストリーミングのウォッチャーを作成します。`watch()` は `AbortSignal` を渡すことで、任意のタイミングで監視を停止できます。
 
 ```typescript
 import { createStreamWatcher } from '@mst-mkt/mixi2-application-sdk-ts/event/stream'
@@ -136,21 +138,19 @@ const streamWatcher = createStreamWatcher({ authenticator }, eventHandler)
 await streamWatcher.watch()
 ```
 
-`watch()` は `AbortSignal` を渡すことで、任意のタイミングで監視を停止できます。
+[gRPC Stream の詳細 >](./docs/guides/events-stream.md)
 
-### 環境変数
+## デプロイ
 
-| 変数名                 | 使用先                 | 取得元                                                                                 |
-| ---------------------- | ---------------------- | -------------------------------------------------------------------------------------- |
-| `CLIENT_ID`            | `createAuthenticator`  | [Developer Platform](https://developer.mixi.social/docs) > アプリケーション > 認証情報 |
-| `CLIENT_SECRET`        | `createAuthenticator`  | [Developer Platform](https://developer.mixi.social/docs) > アプリケーション > 認証情報 |
-| `SIGNATURE_PUBLIC_KEY` | `createWebhookHandler` | [Developer Platform](https://developer.mixi.social/docs) > アプリケーション > Webhook  |
-
-## 実装例
-
-- [Deno Deploy](./example/deno-deploy) - Webhook (デプロイ) / gRPC Stream (ローカル開発)
-- [Vercel](./example/vercel) - Webhook (デプロイ) / gRPC Stream (ローカル開発)
-- [Cloudflare Workers](./example/cloudflare-workers) - Webhook のみ
+- **Deno Deploy**
+  - [ドキュメント: docs/deployments/deno-deploy.md](./docs/deployments/deno-deploy.md)
+  - [実装例: mixi2-example-deno-deploy](./example/deno-deploy)
+- **Vercel**
+  - [ドキュメント: docs/deployments/vercel.md](./docs/deployments/vercel.md)
+  - [実装例: mixi2-example-vercel](./example/vercel)
+- **Cloudflare Workers**
+  - [ドキュメント: docs/deployments/cloudflare-workers.md](./docs/deployments/cloudflare-workers.md)
+  - [実装例: mixi2-example-cloudflare-workers](./example/cloudflare-workers)
 
 ## 開発
 
