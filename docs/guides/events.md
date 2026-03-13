@@ -5,7 +5,7 @@
 ## イベントハンドラーの定義
 
 ```typescript
-import { createEventHandler } from '@mst-mkt/mixi2-application-sdk-ts/event'
+import { createEventHandler } from '@mst-mkt/mixi2-application-sdk-ts'
 
 const eventHandler = createEventHandler({
   postCreated: async (event, rawEvent) => {

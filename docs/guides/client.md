@@ -19,8 +19,7 @@ API クライアントの作成には `authenticator` が必要です。
 それを `createMixi2Client` 関数に渡すことで、API クライアントを作成できます。
 
 ```typescript
-import { createAuthenticator } from '@mst-mkt/mixi2-application-sdk-ts/auth'
-import { createMixi2Client } from '@mst-mkt/mixi2-application-sdk-ts/client'
+import { createAuthenticator, createMixi2Client } from '@mst-mkt/mixi2-application-sdk-ts'
 
 const authenticator = createAuthenticator({
   clientId: CLIENT_ID,
