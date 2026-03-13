@@ -336,6 +336,9 @@ for (const user of users) {
 | `getUsers`                |  10 回 | 1 分       |
 | `getPosts`                |  10 回 | 1 分       |
 
+> [!NOTE]
+> `initiatePostMediaUpload` には 1 分あたりと 1 時間あたりの 2 つの制限が適用されます。いずれかの制限に達した場合、リクエストが制限されます。
+
 `getStamps`、`getPostMediaStatus` にはレート制限はありません。
 
 ### ポスト情報の取得
