@@ -1,11 +1,3 @@
-/**
- * mixi2 Application API の型付きクライアント
- *
- * connect-es ベースのクライアントを提供する
- *
- * @module
- */
-
 import type { Client } from '@connectrpc/connect'
 import { createClient } from '@connectrpc/connect'
 
@@ -36,8 +28,7 @@ export type Mixi2Client = Client<typeof ApplicationService>
  *
  * @example
  * ```ts
- * import { createAuthenticator } from '@mst-mkt/mixi2-application-sdk-ts/auth'
- * import { createMixi2Client } from '@mst-mkt/mixi2-application-sdk-ts/client'
+ * import { createAuthenticator, createMixi2Client } from '@mst-mkt/mixi2-application-sdk-ts'
  *
  * const authenticator = createAuthenticator({
  *   clientId: 'your-client-id',

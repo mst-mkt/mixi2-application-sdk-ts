@@ -5,11 +5,6 @@
     "include": ["jsr.json", "src/", "docs/", "LICENSE", "README.md"]
   },
   "exports": {
-    ".": "./src/index.ts",
-    "./auth": "./src/auth/index.ts",
-    "./client": "./src/client/index.ts",
-    "./event": "./src/event/index.ts",
-    "./event/webhook": "./src/event/webhook/index.ts",
-    "./event/stream": "./src/event/stream/index.ts"
+    ".": "./src/index.ts"
   }
 }

@@ -52,9 +52,7 @@ const consumeStream = async (
  *
  * @example
  * ```ts
- * import { createAuthenticator } from '@mst-mkt/mixi2-application-sdk-ts/auth'
- * import { createEventHandler } from '@mst-mkt/mixi2-application-sdk-ts/event'
- * import { createStreamWatcher } from '@mst-mkt/mixi2-application-sdk-ts/event/stream'
+ * import { createAuthenticator, createEventHandler, createStreamWatcher } from '@mst-mkt/mixi2-application-sdk-ts'
  *
  * const authenticator = createAuthenticator({
  *   clientId: 'your-client-id',
