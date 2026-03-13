@@ -66,6 +66,12 @@ deno add jsr:@mst-mkt/mixi2-application-sdk-ts
 
 詳細な使い方については [ドキュメント](./docs/getting-started.md) を参照してください。
 
+<details><summary>For LLM, Coding Agents</summary>
+
+This library includes documentation in the package. The best way to access it is to check the local node_modules. If that's not possible, you can refer to the documentation at [https://github.com/mst-mkt/mixi2-application-sdk-ts/tree/main/docs](https://github.com/mst-mkt/mixi2-application-sdk-ts/tree/main/docs).
+
+</details>
+
 ### API クライアント
 
 `createAuthenticator` で認証情報を設定し、`createMixi2Client` で API クライアントを作成します。
