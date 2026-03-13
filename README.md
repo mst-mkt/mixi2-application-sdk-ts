@@ -53,9 +53,10 @@ deno add jsr:@mst-mkt/mixi2-application-sdk-ts
 - Bun: 0.5.7 以降
   - `crypto.subtle`: 0.5.7 以降 (ref: https://bun.sh/blog/bun-v0.5.7#changelog)
   - `node:http2`: 1.0.13 以降 (ref: https://bun.sh/blog/bun-v1.0.13#http2-client-support)
-- Cloudflare Workers: 非対応
+- Cloudflare Workers: 実験的対応
   - `crypto.subtle`: 2023-04-28 以降 (ref: https://developers.cloudflare.com/workers/platform/changelog/#2023-04-28)
   - `node:http2`: 非対応 (ref: https://developers.cloudflare.com/workers/runtime-apis/nodejs/#supported-nodejs-apis)
+    - `node:http2` を回避して利用する方法がある (ref: [docs/deployments/cloudflare-workers](./docs/deployments/cloudflare-workers.md#api-クライアントの利用-実験的))
 
 </details>
 
