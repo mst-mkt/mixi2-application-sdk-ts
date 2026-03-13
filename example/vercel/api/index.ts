@@ -1,8 +1,10 @@
-import { createAuthenticator } from '@mst-mkt/mixi2-application-sdk-ts/auth'
-import { createMixi2Client } from '@mst-mkt/mixi2-application-sdk-ts/client'
-import { createEventHandler } from '@mst-mkt/mixi2-application-sdk-ts/event'
-import { createStreamWatcher } from '@mst-mkt/mixi2-application-sdk-ts/event/stream'
-import { createWebhookHandler } from '@mst-mkt/mixi2-application-sdk-ts/event/webhook'
+import {
+  createAuthenticator,
+  createMixi2Client,
+  createEventHandler,
+  createStreamWatcher,
+  createWebhookHandler,
+} from '@mst-mkt/mixi2-application-sdk-ts'
 
 const getEnv = (name: string): string => {
   const value = process.env[name]?.trim()
