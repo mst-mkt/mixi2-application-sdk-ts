@@ -1,5 +1,15 @@
 # @mst-mkt/mixi2-application-sdk-ts
 
+## 0.4.0
+
+### Minor Changes
+
+- [#15](https://github.com/mst-mkt/mixi2-application-sdk-ts/pull/15) [`51c3fd1`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/51c3fd172494c8534aa4febc427b919456a1f9d7) Thanks [@mst-mkt](https://github.com/mst-mkt)! - サブパス (`/auth`, `/client`, `/event`, `/event/webhook`, `/event/stream`) を廃止し、全てのエクスポートをパッケージルートに統合。生成コードの型、Enum も re-export するように変更。
+
+### Patch Changes
+
+- [#13](https://github.com/mst-mkt/mixi2-application-sdk-ts/pull/13) [`49263dd`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/49263dde5ba044413bd645b11b9820d7cea3d853) Thanks [@mst-mkt](https://github.com/mst-mkt)! - npm / JSR パッケージにドキュメントを含めるように変更
+
 ## 0.3.0
 
 ### Minor Changes
