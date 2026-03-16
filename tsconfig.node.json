@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "types": ["node"],
+
+    "strict": true,
+
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+
+    "composite": true,
+    "skipLibCheck": true
+  },
+  "include": ["scripts"]
+}
