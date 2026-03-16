@@ -63,18 +63,12 @@ jobs:
             echo "skip=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: setup pnpm
+      - name: setup vite+
         if: steps.check.outputs.skip != 'true'
-        uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4.3.0
-        with:
-          run_install: true
-
-      - name: setup node.js
-        if: steps.check.outputs.skip != 'true'
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        uses: voidzero-dev/setup-vp@4a524139920f87f9f7080d3b8545acac019e1852 # v1.0.0
         with:
           node-version: '24.14.0'
-          cache: 'pnpm'
+          cache: true
 
       - name: update buf.gen.yaml
         if: steps.check.outputs.skip != 'true'
@@ -82,7 +76,7 @@ jobs:
 
       - name: generate code
         if: steps.check.outputs.skip != 'true'
-        run: pnpm run generate
+        run: vp run generate
 
       - name: create pull request
         if: steps.check.outputs.skip != 'true'
