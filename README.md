@@ -1,5 +1,7 @@
 # mixi2 Application SDK for TypeScript
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/mst-mkt/mixi2-application-sdk-ts) [![Actions: CI](https://github.com/mst-mkt/mixi2-application-sdk-ts/actions/workflows/ci.yaml/badge.svg)](https://github.com/mst-mkt/mixi2-application-sdk-ts/actions/workflows/ci.yaml) [![License](https://img.shields.io/npm/l/@mst-mkt/mixi2-application-sdk-ts)](https://github.com/mst-mkt/mixi2-application-sdk-ts?tab=Apache-2.0-1-ov-file) [![Stargazers](https://img.shields.io/github/stars/mst-mkt/mixi2-application-sdk-ts?style=social)](https://github.com/mst-mkt/mixi2-application-sdk-ts/stargazers)
+
 mixi2 の Application API を利用するための TypeScript SDK です。
 
 > [!NOTE]
