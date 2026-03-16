@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vite-plus/test'
 
 import type { Authenticator } from '../../auth/types'
 import { DEFAULT_STREAM_BASE_URL } from '../../constants'

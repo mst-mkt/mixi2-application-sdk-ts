@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vite-plus/test'
 
 import { DEFAULT_TOKEN_URL } from '../constants'
 import { createAuthenticator } from './authenticator'

@@ -1,5 +1,5 @@
 import { create } from '@bufbuild/protobuf'
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it, vi } from 'vite-plus/test'
 
 import { EventType } from '../gen/social/mixi/application/const/v1/event_type_pb'
 import {
