@@ -29,20 +29,7 @@
     }
   },
   "scripts": {
-    "generate": "buf generate",
-    "dev": "tsdown --watch",
-    "build": "tsdown",
-    "check:lint": "oxlint",
-    "check:fmt": "oxfmt --check",
-    "check:types": "tsc --noEmit",
-    "fix:lint": "oxlint --fix",
-    "fix:fmt": "oxfmt",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "prerelease": "pnpm build",
-    "release": "changeset publish",
-    "version": "changeset version",
-    "postversion": "node ./scripts/sync-jsr-version.ts"
+    "prepare": "vp config"
   },
   "dependencies": {
     "@bufbuild/protobuf": "^2.7.0",
@@ -57,12 +44,8 @@
     "@changesets/cli": "^2.30.0",
     "@connectrpc/connect": "^2.1.1",
     "@types/node": "^24.12.0",
-    "oxfmt": "^0.36.0",
-    "oxlint": "^1.51.0",
-    "oxlint-tsgolint": "^0.16.0",
-    "tsdown": "^0.21.0",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.18"
+    "vite-plus": "^0.1.12"
   },
   "engines": {
     "node": ">=18"

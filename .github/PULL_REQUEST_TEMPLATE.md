@@ -14,8 +14,6 @@
 
 ## チェックリスト
 
-- [ ] `pnpm check:fmt`
-- [ ] `pnpm check:lint`
-- [ ] `pnpm check:types`
-- [ ] `pnpm test`
-- [ ] 必要に応じて Changeset を追加 (`pnpm changeset`)
+- [ ] `vp check`
+- [ ] `vp run test`
+- [ ] 必要に応じて Changeset を追加 (`vp exec changeset`)

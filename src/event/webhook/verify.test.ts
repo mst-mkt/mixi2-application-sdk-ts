@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it } from 'vite-plus/test'
 
 import { generateKeyPair } from '../../test/utils'
 import { verifySignature, verifyTimestamp } from './verify'

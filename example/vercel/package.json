@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "cd ../.. && pnpm build",
+    "build": "cd ../.. && pnpm exec vp run build",
     "dev": "tsx --watch --env-file=.env api/index.ts"
   },
   "dependencies": {
