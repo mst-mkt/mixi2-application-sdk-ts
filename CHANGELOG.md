@@ -1,5 +1,11 @@
 # @mst-mkt/mixi2-application-sdk-ts
 
+## 0.5.0
+
+### Minor Changes
+
+- [#23](https://github.com/mst-mkt/mixi2-application-sdk-ts/pull/23) [`32896b2`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/32896b24ae9ce4ad3a3d66ee400720796a8a1891) Thanks [@mst-mkt](https://github.com/mst-mkt)! - api: update to 1.1.0
+
 ## 0.4.0
 
 ### Minor Changes
