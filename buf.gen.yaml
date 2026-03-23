@@ -8,4 +8,4 @@ plugins:
 inputs:
   - git_repo: https://github.com/mixigroup/mixi2-api.git
     subdir: proto
-    tag: v1.0.0
+    tag: v1.1.0
