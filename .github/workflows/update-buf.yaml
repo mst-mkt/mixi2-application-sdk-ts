@@ -65,7 +65,7 @@ jobs:
 
       - name: setup vite+
         if: steps.check.outputs.skip != 'true'
-        uses: voidzero-dev/setup-vp@4a524139920f87f9f7080d3b8545acac019e1852 # v1.0.0
+        uses: voidzero-dev/setup-vp@e1609b468742ba9232ce5e12b3a77bdf14495277 # v1.1.0
         with:
           node-version: '24.14.0'
           cache: true
