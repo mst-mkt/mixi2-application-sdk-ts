@@ -15,7 +15,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: setup vite+
-        uses: voidzero-dev/setup-vp@e1609b468742ba9232ce5e12b3a77bdf14495277 # v1.1.0
+        uses: voidzero-dev/setup-vp@624fe22ccfe9204a526ac8139186d34297453722 # v1.4.0
         with:
           node-version: '24.14.0'
           cache: true
