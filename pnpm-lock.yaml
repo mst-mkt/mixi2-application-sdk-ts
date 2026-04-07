@@ -34,11 +34,11 @@ importers:
         specifier: ^24.12.0
         version: 24.12.0
       typescript:
-        specifier: ^5.9.3
-        version: 5.9.3
+        specifier: ^6.0.0
+        version: 6.0.2
       vite-plus:
         specifier: ^0.1.12
-        version: 0.1.14(@edge-runtime/vm@3.2.0)(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.12.0)(lightningcss@1.32.0)(tsx@4.21.0))
+        version: 0.1.14(@edge-runtime/vm@3.2.0)(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)(vite@7.3.1(@types/node@24.12.0)(lightningcss@1.32.0)(tsx@4.21.0))
 
   example/cloudflare-workers:
     dependencies:
@@ -1934,6 +1934,11 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  typescript@6.0.2:
+    resolution: {integrity: sha512-bGdAIrZ0wiGDo5l8c++HWtbaNCWTS4UTv7RaTH/ThVIgjkveJt83m74bBHMJkuCbslY8ixgLBVZJIOiQlQTjfQ==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
@@ -2867,7 +2872,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@voidzero-dev/vite-plus-core@0.1.14(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@5.9.3)':
+  '@voidzero-dev/vite-plus-core@0.1.14(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)':
     dependencies:
       '@oxc-project/runtime': 0.121.0
       '@oxc-project/types': 0.122.0
@@ -2878,7 +2883,7 @@ snapshots:
       esbuild: 0.27.7
       fsevents: 2.3.3
       tsx: 4.21.0
-      typescript: 5.9.3
+      typescript: 6.0.2
 
   '@voidzero-dev/vite-plus-darwin-arm64@0.1.14':
     optional: true
@@ -2898,11 +2903,11 @@ snapshots:
   '@voidzero-dev/vite-plus-linux-x64-musl@0.1.14':
     optional: true
 
-  '@voidzero-dev/vite-plus-test@0.1.14(@edge-runtime/vm@3.2.0)(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.12.0)(lightningcss@1.32.0)(tsx@4.21.0))':
+  '@voidzero-dev/vite-plus-test@0.1.14(@edge-runtime/vm@3.2.0)(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)(vite@7.3.1(@types/node@24.12.0)(lightningcss@1.32.0)(tsx@4.21.0))':
     dependencies:
       '@standard-schema/spec': 1.1.0
       '@types/chai': 5.2.3
-      '@voidzero-dev/vite-plus-core': 0.1.14(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@5.9.3)
+      '@voidzero-dev/vite-plus-core': 0.1.14(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)
       es-module-lexer: 1.7.0
       obug: 2.1.1
       pixelmatch: 7.1.0
@@ -3520,6 +3525,8 @@ snapshots:
 
   typescript@5.9.3: {}
 
+  typescript@6.0.2: {}
+
   undici-types@6.21.0: {}
 
   undici-types@7.16.0: {}
@@ -3532,11 +3539,11 @@ snapshots:
 
   universalify@0.1.2: {}
 
-  vite-plus@0.1.14(@edge-runtime/vm@3.2.0)(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.12.0)(lightningcss@1.32.0)(tsx@4.21.0)):
+  vite-plus@0.1.14(@edge-runtime/vm@3.2.0)(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)(vite@7.3.1(@types/node@24.12.0)(lightningcss@1.32.0)(tsx@4.21.0)):
     dependencies:
       '@oxc-project/types': 0.122.0
-      '@voidzero-dev/vite-plus-core': 0.1.14(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@5.9.3)
-      '@voidzero-dev/vite-plus-test': 0.1.14(@edge-runtime/vm@3.2.0)(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.12.0)(lightningcss@1.32.0)(tsx@4.21.0))
+      '@voidzero-dev/vite-plus-core': 0.1.14(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)
+      '@voidzero-dev/vite-plus-test': 0.1.14(@edge-runtime/vm@3.2.0)(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)(vite@7.3.1(@types/node@24.12.0)(lightningcss@1.32.0)(tsx@4.21.0))
       cac: 7.0.0
       cross-spawn: 7.0.6
       oxfmt: 0.42.0
