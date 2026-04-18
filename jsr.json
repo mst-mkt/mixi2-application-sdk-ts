@@ -1,6 +1,6 @@
 {
   "name": "@mst-mkt/mixi2-application-sdk-ts",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "publish": {
     "include": ["jsr.json", "src/", "docs/", "LICENSE", "README.md"]
   },
