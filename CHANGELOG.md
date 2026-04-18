@@ -1,5 +1,11 @@
 # @mst-mkt/mixi2-application-sdk-ts
 
+## 0.5.1
+
+### Patch Changes
+
+- [`85977a7`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/85977a76f76d6926fa842b100fd85b19beb05656) Thanks [@mst-mkt](https://github.com/mst-mkt)! - Agent Skill (`skills/mixi2-application-sdk-ts/SKILL.md`) を含むリリースタグを発行し、`gh skill install mst-mkt/mixi2-application-sdk-ts` から取得できるようにする
+
 ## 0.5.0
 
 ### Minor Changes
