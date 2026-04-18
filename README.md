@@ -30,6 +30,22 @@ pnpm add @mst-mkt/mixi2-application-sdk-ts
 deno add jsr:@mst-mkt/mixi2-application-sdk-ts
 ```
 
+### Skills
+
+このライブラリを使用するための Skill を公開しています。以下のような方法でインストールできます。
+
+#### GitHub CLI (`gh skill`)
+
+```bash
+gh skill install  mst-mkt/mixi2-application-sdk-ts
+```
+
+#### `vercel-labs/skills` (`npx skills`)
+
+```bash
+npx skills add mst-mkt/mixi2-application-sdk-ts
+```
+
 ## 環境サポート
 
 このライブラリは以下のランタイム API に依存しており、環境によって利用できる機能が異なります。
