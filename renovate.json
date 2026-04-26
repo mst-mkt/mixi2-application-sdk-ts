@@ -4,7 +4,7 @@
   "labels": ["dependencies"],
   "schedule": ["every weekend"],
   "minimumReleaseAge": "7 days",
-  "includePaths": ["package.json", "mise.toml", ".github/**"],
+  "includePaths": ["**/package.json", "mise.toml", ".github/**"],
   "packageRules": [
     {
       "description": "Security: no delay for vulnerability fixes",
