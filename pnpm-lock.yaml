@@ -29,16 +29,16 @@ importers:
         version: 0.6.0
       '@changesets/cli':
         specifier: ^2.30.0
-        version: 2.31.0(@types/node@24.12.0)
+        version: 2.31.0(@types/node@22.19.17)
       '@types/node':
         specifier: ^24.12.0
-        version: 24.12.0
+        version: 22.19.17
       typescript:
         specifier: ^6.0.0
         version: 6.0.2
       vite-plus:
         specifier: ^0.1.12
-        version: 0.1.18(@edge-runtime/vm@3.2.0)(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)(vite@7.3.1(@types/node@24.12.0)(lightningcss@1.32.0)(tsx@4.21.0))
+        version: 0.1.18(@edge-runtime/vm@3.2.0)(@types/node@22.19.17)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)(vite@7.3.1(@types/node@22.19.17)(lightningcss@1.32.0)(tsx@4.21.0))
 
   example/cloudflare-workers:
     dependencies:
@@ -64,7 +64,7 @@ importers:
     devDependencies:
       '@types/node':
         specifier: ^22.15.0
-        version: 22.19.15
+        version: 22.19.17
       tsx:
         specifier: ^4.19.0
         version: 4.21.0
@@ -1230,11 +1230,8 @@ packages:
   '@types/node@12.20.55':
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
 
-  '@types/node@22.19.15':
-    resolution: {integrity: sha512-F0R/h2+dsy5wJAUe3tAU6oqa2qbWY5TpNfL/RGmo1y38hiyO1w3x2jPtt76wmuaJI4DQnOBu21cNXQ2STIUUWg==}
-
-  '@types/node@24.12.0':
-    resolution: {integrity: sha512-GYDxsZi3ChgmckRT9HPU0WEhKLP08ev/Yfcq2AstjrDASOYCSXeyjDsHg4v5t4jOj7cyDX3vmprafKlWIG9MXQ==}
+  '@types/node@22.19.17':
+    resolution: {integrity: sha512-wGdMcf+vPYM6jikpS/qhg6WiqSV/OhG+jeeHT/KlVqxYfD40iYJf9/AE1uQxVWFvU7MipKRkRv8NSHiCGgPr8Q==}
 
   '@typescript/vfs@1.6.4':
     resolution: {integrity: sha512-PJFXFS4ZJKiJ9Qiuix6Dz/OwEIqHD7Dme1UwZhTK11vR+5dqW2ACbdndWQexBzCx+CPuMe5WBYQWCsFyGlQLlQ==}
@@ -1797,8 +1794,8 @@ packages:
     resolution: {integrity: sha512-pMMHxBOZKFU6HgAZ4eyGnwXF/EvPGGqUr0MnZ5+99485wwW41kW91A4LOGxSHhgugZmSChL5AlElNdwlNgcnLQ==}
     engines: {node: ^10 || ^12 || >=14}
 
-  postcss@8.5.11:
-    resolution: {integrity: sha512-5dDj8+lmvA8XB78SmzGI8NlQoksv7IfutGWeVZxiixHbO+p4LDPT3wuG/D9sM/wrjZZ9I+Siy/e117vbFPxSZg==}
+  postcss@8.5.12:
+    resolution: {integrity: sha512-W62t/Se6rA0Az3DfCL0AqJwXuKwBeYg6nOaIgzP+xZ7N5BFCI7DYi1qs6ygUYT6rvfi6t9k65UMLJC+PHZpDAA==}
     engines: {node: ^10 || ^12 || >=14}
 
   prettier@2.8.8:
@@ -1947,9 +1944,6 @@ packages:
 
   undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
-
-  undici-types@7.16.0:
-    resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
 
   undici@7.24.8:
     resolution: {integrity: sha512-6KQ/+QxK49Z/p3HO6E5ZCZWNnCasyZLa5ExaVYyvPxUwKtbCPMKELJOqh7EqOle0t9cH/7d2TaaTRRa6Nhs4YQ==}
@@ -2153,7 +2147,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@changesets/cli@2.31.0(@types/node@24.12.0)':
+  '@changesets/cli@2.31.0(@types/node@22.19.17)':
     dependencies:
       '@changesets/apply-release-plan': 7.1.1
       '@changesets/assemble-release-plan': 6.0.10
@@ -2169,7 +2163,7 @@ snapshots:
       '@changesets/should-skip-package': 0.1.2
       '@changesets/types': 6.1.0
       '@changesets/write': 0.4.0
-      '@inquirer/external-editor': 1.0.3(@types/node@24.12.0)
+      '@inquirer/external-editor': 1.0.3(@types/node@22.19.17)
       '@manypkg/get-packages': 1.1.3
       ansi-colors: 4.1.3
       enquirer: 2.4.1
@@ -2577,12 +2571,12 @@ snapshots:
   '@img/sharp-win32-x64@0.34.5':
     optional: true
 
-  '@inquirer/external-editor@1.0.3(@types/node@24.12.0)':
+  '@inquirer/external-editor@1.0.3(@types/node@22.19.17)':
     dependencies:
       chardet: 2.1.1
       iconv-lite: 0.7.2
     optionalDependencies:
-      '@types/node': 24.12.0
+      '@types/node': 22.19.17
 
   '@jridgewell/resolve-uri@3.1.2': {}
 
@@ -2863,13 +2857,9 @@ snapshots:
 
   '@types/node@12.20.55': {}
 
-  '@types/node@22.19.15':
+  '@types/node@22.19.17':
     dependencies:
       undici-types: 6.21.0
-
-  '@types/node@24.12.0':
-    dependencies:
-      undici-types: 7.16.0
 
   '@typescript/vfs@1.6.4(typescript@5.4.5)':
     dependencies:
@@ -2878,14 +2868,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@voidzero-dev/vite-plus-core@0.1.18(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)':
+  '@voidzero-dev/vite-plus-core@0.1.18(@types/node@22.19.17)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)':
     dependencies:
       '@oxc-project/runtime': 0.124.0
       '@oxc-project/types': 0.124.0
       lightningcss: 1.32.0
       postcss: 8.5.10
     optionalDependencies:
-      '@types/node': 24.12.0
+      '@types/node': 22.19.17
       esbuild: 0.27.7
       fsevents: 2.3.3
       tsx: 4.21.0
@@ -2909,11 +2899,11 @@ snapshots:
   '@voidzero-dev/vite-plus-linux-x64-musl@0.1.18':
     optional: true
 
-  '@voidzero-dev/vite-plus-test@0.1.18(@edge-runtime/vm@3.2.0)(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)(vite@7.3.1(@types/node@24.12.0)(lightningcss@1.32.0)(tsx@4.21.0))':
+  '@voidzero-dev/vite-plus-test@0.1.18(@edge-runtime/vm@3.2.0)(@types/node@22.19.17)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)(vite@7.3.1(@types/node@22.19.17)(lightningcss@1.32.0)(tsx@4.21.0))':
     dependencies:
       '@standard-schema/spec': 1.1.0
       '@types/chai': 5.2.3
-      '@voidzero-dev/vite-plus-core': 0.1.18(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)
+      '@voidzero-dev/vite-plus-core': 0.1.18(@types/node@22.19.17)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)
       es-module-lexer: 1.7.0
       obug: 2.1.1
       pixelmatch: 7.1.0
@@ -2923,11 +2913,11 @@ snapshots:
       tinybench: 2.9.0
       tinyexec: 1.1.1
       tinyglobby: 0.2.16
-      vite: 7.3.1(@types/node@24.12.0)(lightningcss@1.32.0)(tsx@4.21.0)
+      vite: 7.3.1(@types/node@22.19.17)(lightningcss@1.32.0)(tsx@4.21.0)
       ws: 8.20.0
     optionalDependencies:
       '@edge-runtime/vm': 3.2.0
-      '@types/node': 24.12.0
+      '@types/node': 22.19.17
     transitivePeerDependencies:
       - '@arethetypeswrong/core'
       - '@tsdown/css'
@@ -3370,7 +3360,7 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  postcss@8.5.11:
+  postcss@8.5.12:
     dependencies:
       nanoid: 3.3.11
       picocolors: 1.1.1
@@ -3539,8 +3529,6 @@ snapshots:
 
   undici-types@6.21.0: {}
 
-  undici-types@7.16.0: {}
-
   undici@7.24.8: {}
 
   unenv@2.0.0-rc.24:
@@ -3549,11 +3537,11 @@ snapshots:
 
   universalify@0.1.2: {}
 
-  vite-plus@0.1.18(@edge-runtime/vm@3.2.0)(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)(vite@7.3.1(@types/node@24.12.0)(lightningcss@1.32.0)(tsx@4.21.0)):
+  vite-plus@0.1.18(@edge-runtime/vm@3.2.0)(@types/node@22.19.17)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)(vite@7.3.1(@types/node@22.19.17)(lightningcss@1.32.0)(tsx@4.21.0)):
     dependencies:
       '@oxc-project/types': 0.124.0
-      '@voidzero-dev/vite-plus-core': 0.1.18(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)
-      '@voidzero-dev/vite-plus-test': 0.1.18(@edge-runtime/vm@3.2.0)(@types/node@24.12.0)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)(vite@7.3.1(@types/node@24.12.0)(lightningcss@1.32.0)(tsx@4.21.0))
+      '@voidzero-dev/vite-plus-core': 0.1.18(@types/node@22.19.17)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)
+      '@voidzero-dev/vite-plus-test': 0.1.18(@edge-runtime/vm@3.2.0)(@types/node@22.19.17)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.2)(vite@7.3.1(@types/node@22.19.17)(lightningcss@1.32.0)(tsx@4.21.0))
       oxfmt: 0.45.0
       oxlint: 1.60.0(oxlint-tsgolint@0.20.0)
       oxlint-tsgolint: 0.20.0
@@ -3596,16 +3584,16 @@ snapshots:
       - vite
       - yaml
 
-  vite@7.3.1(@types/node@24.12.0)(lightningcss@1.32.0)(tsx@4.21.0):
+  vite@7.3.1(@types/node@22.19.17)(lightningcss@1.32.0)(tsx@4.21.0):
     dependencies:
       esbuild: 0.27.7
       fdir: 6.5.0(picomatch@4.0.4)
       picomatch: 4.0.4
-      postcss: 8.5.11
+      postcss: 8.5.12
       rollup: 4.60.2
       tinyglobby: 0.2.16
     optionalDependencies:
-      '@types/node': 24.12.0
+      '@types/node': 22.19.17
       fsevents: 2.3.3
       lightningcss: 1.32.0
       tsx: 4.21.0
