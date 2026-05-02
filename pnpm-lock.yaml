@@ -10,20 +10,20 @@ importers:
     dependencies:
       '@bufbuild/protobuf':
         specifier: ^2.7.0
-        version: 2.11.0
+        version: 2.12.0
       '@connectrpc/connect':
         specifier: ^2.1.0
-        version: 2.1.1(@bufbuild/protobuf@2.11.0)
+        version: 2.1.1(@bufbuild/protobuf@2.12.0)
       '@connectrpc/connect-node':
         specifier: ^2.1.0
-        version: 2.1.1(@bufbuild/protobuf@2.11.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.11.0))
+        version: 2.1.1(@bufbuild/protobuf@2.12.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.12.0))
     devDependencies:
       '@bufbuild/buf':
         specifier: ^1.66.0
         version: 1.68.4
       '@bufbuild/protoc-gen-es':
         specifier: ^2.11.0
-        version: 2.12.0(@bufbuild/protobuf@2.11.0)
+        version: 2.12.0(@bufbuild/protobuf@2.12.0)
       '@changesets/changelog-github':
         specifier: ^0.6.0
         version: 0.6.0
@@ -124,9 +124,6 @@ packages:
     resolution: {integrity: sha512-r+QG3mlQ1h4agDwYxnPz1AdVLubgt09sRLnnlLMj0MVUOWjdV92i/20ZmSxn6+thouGlpr2A+VKPgy8NShchrA==}
     engines: {node: '>=12'}
     hasBin: true
-
-  '@bufbuild/protobuf@2.11.0':
-    resolution: {integrity: sha512-sBXGT13cpmPR5BMgHE6UEEfEaShh5Ror6rfN3yEK5si7QVrtZg8LEPQb0VVhiLRUslD2yLnXtnRzG035J/mZXQ==}
 
   '@bufbuild/protobuf@2.12.0':
     resolution: {integrity: sha512-B/XlCaFIP8LOwzo+bz5uFzATYokcwCKQcghqnlfwSmM5eX/qTkvDBnDPs+gXtX/RyjxJ4DRikECcPJbyALA8FA==}
@@ -2097,15 +2094,13 @@ snapshots:
       '@bufbuild/buf-win32-arm64': 1.68.4
       '@bufbuild/buf-win32-x64': 1.68.4
 
-  '@bufbuild/protobuf@2.11.0': {}
-
   '@bufbuild/protobuf@2.12.0': {}
 
-  '@bufbuild/protoc-gen-es@2.12.0(@bufbuild/protobuf@2.11.0)':
+  '@bufbuild/protoc-gen-es@2.12.0(@bufbuild/protobuf@2.12.0)':
     dependencies:
       '@bufbuild/protoplugin': 2.12.0
     optionalDependencies:
-      '@bufbuild/protobuf': 2.11.0
+      '@bufbuild/protobuf': 2.12.0
     transitivePeerDependencies:
       - supports-color
 
@@ -2300,14 +2295,14 @@ snapshots:
 
   '@cloudflare/workers-types@4.20260418.1': {}
 
-  '@connectrpc/connect-node@2.1.1(@bufbuild/protobuf@2.11.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.11.0))':
+  '@connectrpc/connect-node@2.1.1(@bufbuild/protobuf@2.12.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.12.0))':
     dependencies:
-      '@bufbuild/protobuf': 2.11.0
-      '@connectrpc/connect': 2.1.1(@bufbuild/protobuf@2.11.0)
+      '@bufbuild/protobuf': 2.12.0
+      '@connectrpc/connect': 2.1.1(@bufbuild/protobuf@2.12.0)
 
-  '@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.11.0)':
+  '@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.12.0)':
     dependencies:
-      '@bufbuild/protobuf': 2.11.0
+      '@bufbuild/protobuf': 2.12.0
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
