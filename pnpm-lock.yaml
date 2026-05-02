@@ -20,7 +20,7 @@ importers:
     devDependencies:
       '@bufbuild/buf':
         specifier: ^1.66.0
-        version: 1.68.2
+        version: 1.68.4
       '@bufbuild/protoc-gen-es':
         specifier: ^2.11.0
         version: 2.11.0(@bufbuild/protobuf@2.11.0)
@@ -78,50 +78,50 @@ packages:
     resolution: {integrity: sha512-JiDShH45zKHWyGe4ZNVRrCjBz8Nh9TMmZG1kh4QTK8hCBTWBi8Da+i7s1fJw7/lYpM4ccepSNfqzZ/QvABBi5g==}
     engines: {node: '>=6.9.0'}
 
-  '@bufbuild/buf-darwin-arm64@1.68.2':
-    resolution: {integrity: sha512-OCO5/2Rwif8BSB+iTZstYoWP+U3Shof32s9GDh8Q0U0KGOnGsifnrFUZCcmsJw65p3ekOMmlRk5rN0I7QhPCoQ==}
+  '@bufbuild/buf-darwin-arm64@1.68.4':
+    resolution: {integrity: sha512-57VDmK/U8ysWLsydDy/UzQ4gxS8LZyBiAnq1WWk33aUCkHr1poDgAqdOSzjIlBqoe/Mx/+pbVk2/OuaiY8T6aQ==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [darwin]
 
-  '@bufbuild/buf-darwin-x64@1.68.2':
-    resolution: {integrity: sha512-iGhapuptpH2bOxjLkIhbU9zyf81MWo96Q7jvNzsiZsFsE4PPwE02fWoP8Z49YlqS31/sPH5dzpj2DaExgTRQVQ==}
+  '@bufbuild/buf-darwin-x64@1.68.4':
+    resolution: {integrity: sha512-B552Ke9CMDOIyCZGXqSeEej2+13B1PlesZj3j9DCQml86vVEJLVNw9JIUBRE47S31h0qx/Qzptm1N898gaaXTw==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [darwin]
 
-  '@bufbuild/buf-linux-aarch64@1.68.2':
-    resolution: {integrity: sha512-cSvVYySP/6n6CQhj9x29u1tlnDXLgxhqk4459l/GoMymk7v2NyRbfg90q4Ed2A5kc4UE71jWP6wp7xOseYTOZA==}
+  '@bufbuild/buf-linux-aarch64@1.68.4':
+    resolution: {integrity: sha512-bbe/EQ6vr5ytdoE/llICbp2jPzMDPnT0F0RwlE2rm1sU6crYNJQPOg+QG/NVabL8XimLooRZ1WgPEeZFyAW/hw==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [linux]
 
-  '@bufbuild/buf-linux-armv7@1.68.2':
-    resolution: {integrity: sha512-0diz/+EoBd3s6jPbjYu2y6Umyg0wVvzT8LNKo6HlJ+Q5rU4ZfVrMT+tJALpWmE1nQb7evFD2cadaoVXLaFiw9A==}
+  '@bufbuild/buf-linux-armv7@1.68.4':
+    resolution: {integrity: sha512-Q1SHNEYYiEpz/IwIfBrdVvgd8VCQlPue6J6IzMWNPCjwhhZViQNAMXIo4Huvz0Xhrwe3shYbdEx6uj/tu49dug==}
     engines: {node: '>=12'}
     cpu: [arm]
     os: [linux]
 
-  '@bufbuild/buf-linux-x64@1.68.2':
-    resolution: {integrity: sha512-Lqhpy+pW0CPrCb341zGnRhjadMT3LDZto7Bwx7Ivik4S0IUUKhFbmZqLkA21Xr2HucKiogUqaDIkINsll1AuFA==}
+  '@bufbuild/buf-linux-x64@1.68.4':
+    resolution: {integrity: sha512-Bo8OaMc76+s23xDZ96LhHunBJYdwTyDOdLOvjiebMQ6MTkcPU/B+ecIwJtRj1FGh9NWWRpT/YaroTpOPVNXG/Q==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [linux]
 
-  '@bufbuild/buf-win32-arm64@1.68.2':
-    resolution: {integrity: sha512-p6+kYldQd6xsKTbqFsnMtt9QHFc6SlREB49rS4s4z/gMiEXMx9z2kDT5RLCPOyJK9xZImWSCuNdTQOAiFcHBtg==}
+  '@bufbuild/buf-win32-arm64@1.68.4':
+    resolution: {integrity: sha512-knbrAF8maJ+7GbsZ9Wp7GuZ72SEiBv/1/0vgZSgdzPn2VytciTM7HRGlsglk9sPTX18WlKZeOY/+pkJpC/RGRQ==}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [win32]
 
-  '@bufbuild/buf-win32-x64@1.68.2':
-    resolution: {integrity: sha512-RRroPdgMr73TpZvaM9BZDmoBAd4lgwN6exmE7hH7E8KvDh15McDsQ1Ft9GKWZW/tBY8FTetpI+YkBTRlKih91g==}
+  '@bufbuild/buf-win32-x64@1.68.4':
+    resolution: {integrity: sha512-JnUSCPNtmdSWaj9mA7ioLC2y8kpvX91FEYwxk3VrNukWtctiMTbhbS9CwbUdZuHjJSvWDLdKIS75Iyj16ufplg==}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
 
-  '@bufbuild/buf@1.68.2':
-    resolution: {integrity: sha512-kUyc03x0EEubQGA93k4mJFmnybQZtgoMxZeMPoTHxur/XpwweZTe4XCbYA9qDL2DKrC/FnNV7ybGMMmlAvQoBg==}
+  '@bufbuild/buf@1.68.4':
+    resolution: {integrity: sha512-r+QG3mlQ1h4agDwYxnPz1AdVLubgt09sRLnnlLMj0MVUOWjdV92i/20ZmSxn6+thouGlpr2A+VKPgy8NShchrA==}
     engines: {node: '>=12'}
     hasBin: true
 
@@ -1695,6 +1695,11 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  nanoid@3.3.12:
+    resolution: {integrity: sha512-ZB9RH/39qpq5Vu6Y+NmUaFhQR6pp+M2Xt76XBnEwDaGcVAqhlvxrl3B2bKS5D3NH3QR76v3aSrKaF/Kiy7lEtQ==}
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+
   node-fetch@2.7.0:
     resolution: {integrity: sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==}
     engines: {node: 4.x || >=6.0.0}
@@ -1797,8 +1802,8 @@ packages:
     resolution: {integrity: sha512-pMMHxBOZKFU6HgAZ4eyGnwXF/EvPGGqUr0MnZ5+99485wwW41kW91A4LOGxSHhgugZmSChL5AlElNdwlNgcnLQ==}
     engines: {node: ^10 || ^12 || >=14}
 
-  postcss@8.5.11:
-    resolution: {integrity: sha512-5dDj8+lmvA8XB78SmzGI8NlQoksv7IfutGWeVZxiixHbO+p4LDPT3wuG/D9sM/wrjZZ9I+Siy/e117vbFPxSZg==}
+  postcss@8.5.13:
+    resolution: {integrity: sha512-qif0+jGGZoLWdHey3UFHHWP0H7Gbmsk8T5VEqyYFbWqPr1XqvLGBbk/sl8V5exGmcYJklJOhOQq1pV9IcsiFag==}
     engines: {node: ^10 || ^12 || >=14}
 
   prettier@2.8.8:
@@ -2067,36 +2072,36 @@ snapshots:
 
   '@babel/runtime@7.29.2': {}
 
-  '@bufbuild/buf-darwin-arm64@1.68.2':
+  '@bufbuild/buf-darwin-arm64@1.68.4':
     optional: true
 
-  '@bufbuild/buf-darwin-x64@1.68.2':
+  '@bufbuild/buf-darwin-x64@1.68.4':
     optional: true
 
-  '@bufbuild/buf-linux-aarch64@1.68.2':
+  '@bufbuild/buf-linux-aarch64@1.68.4':
     optional: true
 
-  '@bufbuild/buf-linux-armv7@1.68.2':
+  '@bufbuild/buf-linux-armv7@1.68.4':
     optional: true
 
-  '@bufbuild/buf-linux-x64@1.68.2':
+  '@bufbuild/buf-linux-x64@1.68.4':
     optional: true
 
-  '@bufbuild/buf-win32-arm64@1.68.2':
+  '@bufbuild/buf-win32-arm64@1.68.4':
     optional: true
 
-  '@bufbuild/buf-win32-x64@1.68.2':
+  '@bufbuild/buf-win32-x64@1.68.4':
     optional: true
 
-  '@bufbuild/buf@1.68.2':
+  '@bufbuild/buf@1.68.4':
     optionalDependencies:
-      '@bufbuild/buf-darwin-arm64': 1.68.2
-      '@bufbuild/buf-darwin-x64': 1.68.2
-      '@bufbuild/buf-linux-aarch64': 1.68.2
-      '@bufbuild/buf-linux-armv7': 1.68.2
-      '@bufbuild/buf-linux-x64': 1.68.2
-      '@bufbuild/buf-win32-arm64': 1.68.2
-      '@bufbuild/buf-win32-x64': 1.68.2
+      '@bufbuild/buf-darwin-arm64': 1.68.4
+      '@bufbuild/buf-darwin-x64': 1.68.4
+      '@bufbuild/buf-linux-aarch64': 1.68.4
+      '@bufbuild/buf-linux-armv7': 1.68.4
+      '@bufbuild/buf-linux-x64': 1.68.4
+      '@bufbuild/buf-win32-arm64': 1.68.4
+      '@bufbuild/buf-win32-x64': 1.68.4
 
   '@bufbuild/protobuf@2.11.0': {}
 
@@ -3256,6 +3261,8 @@ snapshots:
 
   nanoid@3.3.11: {}
 
+  nanoid@3.3.12: {}
+
   node-fetch@2.7.0:
     dependencies:
       whatwg-url: 5.0.0
@@ -3370,9 +3377,9 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  postcss@8.5.11:
+  postcss@8.5.13:
     dependencies:
-      nanoid: 3.3.11
+      nanoid: 3.3.12
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
@@ -3601,7 +3608,7 @@ snapshots:
       esbuild: 0.27.7
       fdir: 6.5.0(picomatch@4.0.4)
       picomatch: 4.0.4
-      postcss: 8.5.11
+      postcss: 8.5.13
       rollup: 4.60.2
       tinyglobby: 0.2.16
     optionalDependencies:
