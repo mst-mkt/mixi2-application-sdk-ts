@@ -11,7 +11,7 @@
     "@mst-mkt/mixi2-application-sdk-ts": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "^22.15.0",
+    "@types/node": "^24.0.0",
     "tsx": "^4.19.0",
     "typescript": "^5.9.3"
   }
