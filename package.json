@@ -50,7 +50,7 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@11.0.4",
   "pnpm": {
     "onlyBuiltDependencies": [
       "@bufbuild/buf"
