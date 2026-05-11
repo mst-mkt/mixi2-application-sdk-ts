@@ -4,7 +4,12 @@
   "labels": ["dependencies"],
   "schedule": ["every weekend"],
   "minimumReleaseAge": "7 days",
-  "includePaths": ["**/package.json", "mise.toml", ".github/**"],
+  "includePaths": ["**/package.json", "flake.nix", "flake.lock", ".github/**"],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["every weekend"],
+    "automerge": true
+  },
   "packageRules": [
     {
       "description": "Security: no delay for vulnerability fixes",
@@ -23,12 +28,6 @@
     {
       "description": "Auto Merge (npm dev-dependencies)",
       "matchDepTypes": ["devDependencies"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true
-    },
-    {
-      "description": "Auto Merge (mise)",
-      "matchManagers": ["mise"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
     }
