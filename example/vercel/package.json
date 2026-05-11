@@ -8,7 +8,7 @@
     "dev": "tsx --watch --env-file=.env api/index.ts"
   },
   "dependencies": {
-    "@mst-mkt/mixi2-application-sdk-ts": "workspace:*"
+    "@mst-mkt/mixi2-application-sdk-ts": "link:../.."
   },
   "devDependencies": {
     "@types/node": "^22.15.0",
