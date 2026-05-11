@@ -174,6 +174,12 @@ await streamWatcher.watch()
 
 [CONTRIBUTING.md](CONTRIBUTING.md) を参照してください。
 
+## Used by
+
+- ドキュメント更新検知 BOT [@mixi2_docs](https://mixi.social/@mixi2_docs) ([repo](https://github.com/mst-mkt/mixi2-docs-update-bot))
+- 334 Ranker [@334_ranker](https://mixi.social/@334_ranker)
+- 怪レい日本语 [@correctjp](https://mixi.social/@correctjp)
+
 ## ライセンス
 
 [Apache License 2.0](LICENSE)
