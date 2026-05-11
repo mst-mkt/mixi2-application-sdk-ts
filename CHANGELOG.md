@@ -1,5 +1,21 @@
 # @mst-mkt/mixi2-application-sdk-ts
 
+## 1.0.0
+
+### Major Changes
+
+- [`5a0d55a`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/5a0d55a9a28e50bcdd02fa6eaedfc582e0a95b1a) Thanks [@mst-mkt](https://github.com/mst-mkt)! - BREAKING: drop support for Node.js < 22.12.0.
+  Bump `engines.node` to `>=22.12.0` since Node.js 18 / 20 have reached end-of-life.
+
+- [#72](https://github.com/mst-mkt/mixi2-application-sdk-ts/pull/72) [`2fc38ba`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/2fc38ba2b6e4326b0b681e03c106c46510394c9e) Thanks [@github-actions](https://github.com/apps/github-actions)! - Update mixi2 API to v1.2.0.
+  Add Community Plugin implementation and documentation.
+
+### Patch Changes
+
+- [`7ed21c0`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/7ed21c0c8dcbc2acd097c0b7130e8c56d360d24a) Thanks [@mst-mkt](https://github.com/mst-mkt)! - fix: coalesce concurrent token fetches in `createAuthenticator`
+
+- [`7f37378`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/7f37378f997b650b9a518f5cb739f05f4fdb3e17) Thanks [@mst-mkt](https://github.com/mst-mkt)! - update dependencies
+
 ## 0.5.1
 
 ### Patch Changes
