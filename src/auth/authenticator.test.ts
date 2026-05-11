@@ -92,6 +92,44 @@ describe('createAuthenticator', () => {
     })
   })
 
+  it('coalesces_concurrent_requests', async () => {
+    let resolveFetch: ((response: Response) => void) | undefined
+    const fetchMock = vi.fn(
+      () =>
+        new Promise<Response>((resolve) => {
+          resolveFetch = resolve
+        }),
+    )
+    vi.stubGlobal('fetch', fetchMock)
+    const auth = createAuthenticator(mockConfig)
+
+    const first = auth.getAccessToken()
+    const second = auth.getAccessToken()
+    resolveFetch?.(mockTokenResponse())
+    const [a, b] = await Promise.all([first, second])
+
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+    expect(a).toBe('test-access-token')
+    expect(b).toBe('test-access-token')
+  })
+
+  it('coalesced_failure_allows_retry', async () => {
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(new Response(JSON.stringify({ error: 'oops' }), { status: 500 }))
+      .mockResolvedValueOnce(mockTokenResponse())
+    vi.stubGlobal('fetch', fetchMock)
+    const auth = createAuthenticator(mockConfig)
+
+    await expect(Promise.all([auth.getAccessToken(), auth.getAccessToken()])).rejects.toThrow(
+      'Failed to fetch access token: 500',
+    )
+    const token = await auth.getAccessToken()
+
+    expect(fetchMock).toHaveBeenCalledTimes(2)
+    expect(token).toBe('test-access-token')
+  })
+
   it('default_token_url', async () => {
     const fetchMock = vi.fn(() => Promise.resolve(mockTokenResponse()))
     vi.stubGlobal('fetch', fetchMock)

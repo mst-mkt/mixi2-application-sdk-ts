@@ -24,6 +24,7 @@ const TOKEN_EXPIRY_BUFFER_MS = 60_000
  */
 export const createAuthenticator = (config: AuthConfig): Authenticator => {
   let cached: TokenResponse | undefined
+  let inflight: Promise<TokenResponse> | undefined
 
   const fetchToken = async (): Promise<TokenResponse> => {
     const body = new URLSearchParams({
@@ -69,9 +70,15 @@ export const createAuthenticator = (config: AuthConfig): Authenticator => {
   }
 
   const getAccessToken = async (): Promise<string> => {
-    if (cached === undefined || isExpired(cached)) {
-      cached = await fetchToken()
+    if (cached !== undefined && !isExpired(cached)) {
+      return cached.accessToken
     }
+    if (inflight === undefined) {
+      inflight = fetchToken().finally(() => {
+        inflight = undefined
+      })
+    }
+    cached = await inflight
     return cached.accessToken
   }
 
