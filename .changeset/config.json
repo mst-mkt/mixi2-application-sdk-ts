@@ -6,6 +6,5 @@
   "baseBranch": "main",
   "fixed": [],
   "linked": [],
-  "updateInternalDependencies": "patch",
-  "ignore": ["mixi2-example-*"]
+  "updateInternalDependencies": "patch"
 }
