@@ -31,6 +31,11 @@
       "matchDepTypes": ["devDependencies"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
+    },
+    {
+      "description": "Bump package.json range on in-range updates to avoid lockfile-only PRs",
+      "matchManagers": ["npm"],
+      "rangeStrategy": "bump"
     }
   ]
 }
