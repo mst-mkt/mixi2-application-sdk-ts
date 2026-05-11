@@ -9,15 +9,22 @@ on:
 
 jobs:
   ci:
-    name: check
+    name: check (node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version:
+          - '22'
+          - '24'
+          - '26'
     steps:
       - name: checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: setup vite+
         uses: voidzero-dev/setup-vp@4f5aa3e38c781f1b01e78fb9255527cee8a6efa6 # v1.8.0
         with:
-          node-version: '24.14.0'
+          node-version: ${{ matrix.node-version }}
           cache: true
       - name: check (lint, format, type)
         run: vp check
