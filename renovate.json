@@ -4,7 +4,8 @@
   "labels": ["dependencies"],
   "schedule": ["every weekend"],
   "minimumReleaseAge": "7 days",
-  "includePaths": ["**/package.json", "flake.nix", "flake.lock", ".github/**"],
+  "includePaths": ["package.json", "flake.nix", "flake.lock", ".github/**"],
+  "ignorePaths": ["example/**"],
   "lockFileMaintenance": {
     "enabled": true,
     "schedule": ["every weekend"],
