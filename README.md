@@ -62,9 +62,10 @@ npx skills add mst-mkt/mixi2-application-sdk-ts
 
 <details><summary>詳細な対応状況</summary>
 
-- Node.js: 18.4.0 以降
+- Node.js: 18.4.0 以降 (recommended: 22 以降)
   - `crypto.subtle`: 18.4.0 以降 (ref: https://nodejs.org/en/blog/release/v18.4.0#notable-changes)
   - `node:http2`: 10.10.0 以降 (ref: https://nodejs.org/en/blog/release/v10.10.0#notable-changes)
+  - v20 は既に EOL のため、`engines.node` は v22 以降を指定している。
 - Deno: 1.26.0 以降
   - `crypto.subtle`: 1.26.0 以降 (ref: https://deno.com/blog/v1.26#webcrypto-secure-curves)
   - `node:http2`: 1.37.0 以降 (ref: https://deno.com/blog/v1.37#nodejs-compatibility-improvements)
