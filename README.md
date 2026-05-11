@@ -102,11 +102,12 @@ const client = createMixi2Client({ authenticator })
 const { posts } = await client.getPosts({ postIdList: ['5efb4595-fe2d-4c52-b078-b85020385955'] })
 ```
 
-[API クライアントの詳細 >](./docs/guides/client.md)
+[API クライアントの詳細 >](./docs/guides/client.md) \
+[Plugin 固有の API の詳細 >](./docs/guides/plugin.md)
 
 ### イベント処理
 
-mixi2 からのイベント (投稿作成, チャット受信) を処理するハンドラーを定義します。Webhook と gRPC ストリーミングの両方で共通のハンドラーを利用できます。
+mixi2 からのイベント (投稿作成, チャット受信, コミュニティ関連) を処理するハンドラーを定義します。Webhook と gRPC ストリーミングの両方で共通のハンドラーを利用できます。
 
 ```typescript
 import { createEventHandler } from '@mst-mkt/mixi2-application-sdk-ts'
@@ -116,7 +117,13 @@ const eventHandler = createEventHandler({
     // チャット受信時の処理
   },
   postCreated: async ({ post }) => {
-    // 投稿 (引用, メンション, リプライ) 作成時の処理
+    // 投稿 (引用, メンション, リプライ, コミュニティへの投稿) 作成時の処理
+  },
+  communityMemberChanged: async ({ community, member }) => {
+    // コミュニティのメンバー参加・退出時の処理 (Plugin のみ)
+  },
+  communityPluginManaged: async ({ community }) => {
+    // Plugin のコミュニティへの導入・削除時の処理 (Plugin のみ)
   },
 })
 ```

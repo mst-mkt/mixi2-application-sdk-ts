@@ -53,12 +53,24 @@ deno add jsr:@mst-mkt/mixi2-application-sdk-ts
 bunx jsr add @mst-mkt/mixi2-application-sdk-ts
 ```
 
+## アプリケーション種別
+
+mixi2 のアプリケーションには 2 種類があります。
+
+| 種別   | 説明                                                     | 反応するイベント                                                                  |
+| ------ | -------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| Bot    | ユーザーに対してサービスを提供する基本のアプリケーション | リプライ, メンション, DM                                                          |
+| Plugin | コミュニティにインストールされる拡張型アプリケーション   | Bot のイベントに加え, コミュニティ内のポスト, メンバー出入り, Plugin の導入と削除 |
+
+Plugin 固有の機能と API については [Plugin](./guides/plugin.md) を参照してください。
+
 ## 使い方
 
 SDK の使用方法については、以下を確認してください。
 
 - mixi2 の API を使用する
-  - [guides/client](./guides/client.md)
+  - [guides/client](./guides/client.md) — Bot, Plugin 共通の API
+  - [guides/plugin](./guides/plugin.md) — Plugin 固有の API
 - mixi2 のイベントを受けとる
   - [guides/events](./guides/events.md)
   - [guides/events-webhook](./guides/events-webhook.md)

@@ -54,17 +54,20 @@ const client = createMixi2Client({ authenticator })
 
 以下の操作に対応しています。
 
-| RPC                       | 説明                                              |
-| ------------------------- | ------------------------------------------------- |
-| `createPost`              | ポストを作成 (返信, 引用, メディア添付)           |
-| `deletePost`              | アプリケーションが作成したポストを削除            |
-| `sendChatMessage`         | チャットメッセージを送信 (テキスト, メディア添付) |
-| `initiatePostMediaUpload` | メディアアップロードを開始                        |
-| `getPostMediaStatus`      | メディアのアップロード / 処理状況を取得           |
-| `getStamps`               | スタンプ一覧を取得                                |
-| `addStampToPost`          | ポストにスタンプを付与                            |
-| `getUsers`                | ユーザー情報を取得                                |
-| `getPosts`                | ポスト情報を取得                                  |
+| RPC                       | 説明                                                  |
+| ------------------------- | ----------------------------------------------------- |
+| `createPost`              | ポストを作成 (返信, 引用, コミュニティ, メディア添付) |
+| `deletePost`              | アプリケーションが作成したポストを削除                |
+| `sendChatMessage`         | チャットメッセージを送信 (テキスト, メディア添付)     |
+| `initiatePostMediaUpload` | メディアアップロードを開始                            |
+| `getPostMediaStatus`      | メディアのアップロード / 処理状況を取得               |
+| `getStamps`               | スタンプ一覧を取得                                    |
+| `addStampToPost`          | ポストにスタンプを付与                                |
+| `getUsers`                | ユーザー情報を取得                                    |
+| `getPosts`                | ポスト情報を取得                                      |
+
+> [!NOTE]
+> このページでは Bot, Plugin 共通の API を扱います。`getCommunityTimeline`、`getCommunityMemberList`、`restrictCommunityPost`、`sendDirectMessageToCommunityMember`、`getCommunitiesUsingApplication` などの Plugin 固有 API は [Plugin](./plugin.md) を参照してください。
 
 ### ポストの作成
 
@@ -104,6 +107,17 @@ const { post } = await client.createPost({
 
 > [!WARNING]
 > `inReplyToPostId` と `quotedPostId` は同時に指定できません。
+
+#### コミュニティへのポスト (Plugin のみ)
+
+Plugin がインストールされているコミュニティへポストする場合は、`communityId` を指定します。Requirement に `Community.Post.Create` パーミッションの宣言が必要です。
+
+```typescript
+const { post } = await client.createPost({
+  text: 'コミュニティに投稿します',
+  communityId: 'YOUR_COMMUNITY_ID',
+})
+```
 
 #### マスク付きポスト
 
@@ -304,7 +318,7 @@ const { post } = await client.createPost({
 `addStampToPost` を使用して、ポストにスタンプを付与できます。
 
 ```typescript
-// 利用可能なスタンプ一覧を取得
+// 利用可能な公式スタンプ一覧を取得
 const { officialStampSets } = await client.getStamps({
   officialStampLanguage: 1, // LANGUAGE_CODE_JP
 })
@@ -316,13 +330,25 @@ const { post } = await client.addStampToPost({
 })
 ```
 
+Plugin の場合は、`communityIds` を指定することで、対象コミュニティ固有のスタンプ (`communityStampSets`) も取得できます。指定するコミュニティには Plugin がインストールされている必要があります。
+
+```typescript
+const { officialStampSets, communityStampSets } = await client.getStamps({
+  officialStampLanguage: 1, // LANGUAGE_CODE_JP
+  communityIds: ['YOUR_COMMUNITY_ID'],
+})
+```
+
 #### スタンプ付与の制限
 
-| 項目               | 制限                                           |
-| ------------------ | ---------------------------------------------- |
-| 対象ポスト         | アプリケーションにメンションしているポストのみ |
-| 使用可能なスタンプ | 公式スタンプのみ                               |
-| 付与回数           | 同じポストに複数回付与不可                     |
+| 項目               | 制限                                                                                                     |
+| ------------------ | -------------------------------------------------------------------------------------------------------- |
+| 対象ポスト         | アプリケーションにメンションしているポスト、または Plugin がインストールされているコミュニティ内のポスト |
+| 使用可能なスタンプ | 公式スタンプ。Plugin がコミュニティポストにスタンプを付与する場合はコミュニティスタンプも利用可能        |
+| 付与回数           | 同じポストに複数回付与不可                                                                               |
+
+> [!NOTE]
+> コミュニティポストへのスタンプ付与には、Requirement に `Community.Post.Stamp.Create` パーミッションの宣言が必要です。
 
 > [!NOTE]
 > アプリケーションが付与したスタンプを取り消す機能は現在提供されていません。
@@ -359,20 +385,31 @@ for (const user of users) {
 
 各 API にはアプリケーション単位でレート制限が設けられています。
 
-| RPC                       |   制限 | ウィンドウ |
-| ------------------------- | -----: | ---------- |
-| `createPost`              |  10 回 | 1 分       |
-| `sendChatMessage`         |  10 回 | 1 分       |
-| `initiatePostMediaUpload` |  10 回 | 1 分       |
-| `initiatePostMediaUpload` | 100 回 | 1 時間     |
-| `addStampToPost`          |  10 回 | 1 分       |
-| `getUsers`                |  10 回 | 1 分       |
-| `getPosts`                |  10 回 | 1 分       |
+| RPC                                  |   制限 | ウィンドウ |
+| ------------------------------------ | -----: | ---------- |
+| `createPost`                         |  20 回 | 1 分       |
+| `deletePost`                         |  20 回 | 1 分       |
+| `sendChatMessage`                    |  20 回 | 1 分       |
+| `initiatePostMediaUpload`            |  20 回 | 1 分       |
+| `initiatePostMediaUpload`            | 200 回 | 1 時間     |
+| `getPostMediaStatus`                 |  20 回 | 1 分       |
+| `addStampToPost`                     |  20 回 | 1 分       |
+| `getStamps`                          |  20 回 | 1 分       |
+| `getUsers`                           |  20 回 | 1 分       |
+| `getPosts`                           |  20 回 | 1 分       |
+| `getCommunities`                     |  20 回 | 1 分       |
+| `getCommunitiesUsingApplication`     |  20 回 | 1 分       |
+| `getCommunityTimeline`               |  20 回 | 1 分       |
+| `getCommunityMemberList`             |  20 回 | 1 分       |
+| `restrictCommunityPost`              |  20 回 | 1 分       |
+| `sendDirectMessageToCommunityMember` |  20 回 | 1 分       |
 
 > [!NOTE]
 > `initiatePostMediaUpload` には 1 分あたりと 1 時間あたりの 2 つの制限が適用されます。いずれかの制限に達した場合、リクエストが制限されます。
 
-`getStamps`、`getPostMediaStatus` にはレート制限はありません。
+gRPC ストリーミング (`subscribeEvents`) にはリクエスト回数のレート制限はありません。
+
+メディアのアップロードには、リクエスト回数の制限に加えて、データ量の制限 (1 GB / 日) があります。
 
 ### ポスト情報の取得
 

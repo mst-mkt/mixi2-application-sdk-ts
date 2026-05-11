@@ -4,6 +4,8 @@ import { describe, expect, it, vi } from 'vite-plus/test'
 import { EventType } from '../gen/social/mixi/application/const/v1/event_type_pb'
 import {
   ChatMessageReceivedEventSchema,
+  CommunityMemberChangedEventSchema,
+  CommunityPluginManagedEventSchema,
   EventSchema,
   PostCreatedEventSchema,
 } from '../gen/social/mixi/application/model/v1/event_pb'
@@ -33,6 +35,30 @@ const createChatMessageReceivedEvent = () => {
   }
 }
 
+const createCommunityMemberChangedEvent = () => {
+  const body = create(CommunityMemberChangedEventSchema, {})
+  return {
+    body,
+    event: create(EventSchema, {
+      eventId: 'test-event-id',
+      eventType: EventType.COMMUNITY_MEMBER_CHANGED,
+      body: { case: 'communityMemberChangedEvent' as const, value: body },
+    }),
+  }
+}
+
+const createCommunityPluginManagedEvent = () => {
+  const body = create(CommunityPluginManagedEventSchema, {})
+  return {
+    body,
+    event: create(EventSchema, {
+      eventId: 'test-event-id',
+      eventType: EventType.COMMUNITY_PLUGIN_MANAGED,
+      body: { case: 'communityPluginManagedEvent' as const, value: body },
+    }),
+  }
+}
+
 describe('createEventHandler', () => {
   it('calls postCreated handler for postCreatedEvent', async () => {
     const postCreatedHandler = vi.fn()
@@ -54,6 +80,28 @@ describe('createEventHandler', () => {
 
     expect(chatMessageReceivedHandler).toHaveBeenCalledOnce()
     expect(chatMessageReceivedHandler).toHaveBeenCalledWith(body, event)
+  })
+
+  it('calls communityMemberChanged handler for communityMemberChangedEvent', async () => {
+    const communityMemberChangedHandler = vi.fn()
+    const handler = createEventHandler({ communityMemberChanged: communityMemberChangedHandler })
+    const { body, event } = createCommunityMemberChangedEvent()
+
+    await handler.handle(event)
+
+    expect(communityMemberChangedHandler).toHaveBeenCalledOnce()
+    expect(communityMemberChangedHandler).toHaveBeenCalledWith(body, event)
+  })
+
+  it('calls communityPluginManaged handler for communityPluginManagedEvent', async () => {
+    const communityPluginManagedHandler = vi.fn()
+    const handler = createEventHandler({ communityPluginManaged: communityPluginManagedHandler })
+    const { body, event } = createCommunityPluginManagedEvent()
+
+    await handler.handle(event)
+
+    expect(communityPluginManagedHandler).toHaveBeenCalledOnce()
+    expect(communityPluginManagedHandler).toHaveBeenCalledWith(body, event)
   })
 
   it('does not throw when handler is not defined', async () => {

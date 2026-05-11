@@ -1,5 +1,7 @@
 import type {
   ChatMessageReceivedEvent,
+  CommunityMemberChangedEvent,
+  CommunityPluginManagedEvent,
   Event,
   PostCreatedEvent,
 } from '../gen/social/mixi/application/model/v1/event_pb'
@@ -10,6 +12,14 @@ export type EventHandlers = {
   readonly postCreated?: (event: PostCreatedEvent, rawEvent: Event) => Promise<void> | void
   readonly chatMessageReceived?: (
     event: ChatMessageReceivedEvent,
+    rawEvent: Event,
+  ) => Promise<void> | void
+  readonly communityMemberChanged?: (
+    event: CommunityMemberChangedEvent,
+    rawEvent: Event,
+  ) => Promise<void> | void
+  readonly communityPluginManaged?: (
+    event: CommunityPluginManagedEvent,
     rawEvent: Event,
   ) => Promise<void> | void
 }
@@ -31,6 +41,12 @@ export type EventHandlers = {
  *   chatMessageReceived: async ({ message }) => {
  *     console.log('メッセージを受信しました:', message?.text)
  *   },
+ *   communityMemberChanged: async ({ community, member }) => {
+ *     console.log('コミュニティメンバーが変更されました:', community?.name, member?.displayName)
+ *   },
+ *   communityPluginManaged: async ({ community }) => {
+ *     console.log('コミュニティプラグインが変更されました:', community?.name)
+ *   },
  * })
  * ```
  */
@@ -41,6 +57,12 @@ export const createEventHandler = (handlers: EventHandlers): EventHandler => ({
     }
     if (event.body.case === 'chatMessageReceivedEvent') {
       await handlers.chatMessageReceived?.(event.body.value, event)
+    }
+    if (event.body.case === 'communityMemberChangedEvent') {
+      await handlers.communityMemberChanged?.(event.body.value, event)
+    }
+    if (event.body.case === 'communityPluginManagedEvent') {
+      await handlers.communityPluginManaged?.(event.body.value, event)
     }
   },
 })

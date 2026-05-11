@@ -37,6 +37,8 @@ export type { StreamWatcher, StreamWatcherConfig } from './event/stream/watcher'
 export type {
   PostCreatedEvent,
   ChatMessageReceivedEvent,
+  CommunityMemberChangedEvent,
+  CommunityPluginManagedEvent,
 } from './gen/social/mixi/application/model/v1/event_pb'
 export type {
   Post,
@@ -57,7 +59,14 @@ export type {
 export type {
   OfficialStampSet,
   OfficialStamp,
+  CommunityStampSet,
+  CommunityStamp,
 } from './gen/social/mixi/application/model/v1/stamp_pb'
+export type {
+  Community,
+  CommunityUsingApplication,
+} from './gen/social/mixi/application/model/v1/community_pb'
+export type { ApplicationVersion } from './gen/social/mixi/application/model/v1/application_pb'
 
 // gen: const enums
 export { EventType, EventReason } from './gen/social/mixi/application/const/v1/event_type_pb'
@@ -71,3 +80,6 @@ export { PostVisibility } from './gen/social/mixi/application/const/v1/post_visi
 export { StampSetType } from './gen/social/mixi/application/const/v1/stamp_set_type_pb'
 export { UserAccessLevel } from './gen/social/mixi/application/const/v1/user_access_level_pb'
 export { UserVisibility } from './gen/social/mixi/application/const/v1/user_visibility_pb'
+export { ApplicationRequirement } from './gen/social/mixi/application/const/v1/application_requirement_pb'
+export { CommunityAccessLevel } from './gen/social/mixi/application/const/v1/community_access_level_pb'
+export { CommunityVisibility } from './gen/social/mixi/application/const/v1/community_visibility_pb'
