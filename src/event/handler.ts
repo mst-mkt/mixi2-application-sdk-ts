@@ -31,6 +31,12 @@ export type EventHandlers = {
  *   chatMessageReceived: async ({ message }) => {
  *     console.log('メッセージを受信しました:', message?.text)
  *   },
+ *   communityMemberChanged: async ({ community, member }) => {
+ *     console.log('コミュニティメンバーが変更されました:', community?.name, member?.displayName)
+ *   },
+ *   communityPluginManaged: async ({ community }) => {
+ *     console.log('コミュニティプラグインが変更されました:', community?.name)
+ *   },
  * })
  * ```
  */
