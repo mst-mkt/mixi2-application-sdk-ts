@@ -5,7 +5,8 @@
 ### 必要なツール
 
 - [Vite+](https://viteplus.dev/guide/)
-- [mise](https://mise.jdx.dev/getting-started.html)
+- [Node.js](https://nodejs.org/)
+- [pnpm](https://pnpm.io/)
 
 ### 準備
 
@@ -14,11 +15,7 @@ git clone https://github.com/mst-mkt/mixi2-application-sdk-ts.git
 cd mixi2-application-sdk-ts
 ```
 
-#### 依存、ツールのインストール
-
-```bash
-mise install
-```
+#### 依存のインストール
 
 ```bash
 vp install
