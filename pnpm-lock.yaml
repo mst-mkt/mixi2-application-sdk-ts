@@ -37,7 +37,7 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3
       vite-plus:
-        specifier: ^0.1.21
+        specifier: ^0.1.22
         version: 0.1.22(@edge-runtime/vm@3.2.0)(@types/node@24.12.3)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))
 
   example/cloudflare-workers:
