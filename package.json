@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@bufbuild/protobuf": "^2.12.0",
-    "@connectrpc/connect": "^2.1.1",
+    "@connectrpc/connect": "^2.1.2",
     "@connectrpc/connect-node": "^2.1.1"
   },
   "devDependencies": {
@@ -42,7 +42,7 @@
     "@bufbuild/protoc-gen-es": "^2.12.0",
     "@changesets/changelog-github": "^0.7.0",
     "@changesets/cli": "^2.31.0",
-    "@connectrpc/connect": "^2.1.1",
+    "@connectrpc/connect": "^2.1.2",
     "@types/node": "^24.12.3",
     "typescript": "^6.0.3",
     "vite-plus": "^0.1.24"
