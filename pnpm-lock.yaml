@@ -29,16 +29,16 @@ importers:
         version: 0.7.0
       '@changesets/cli':
         specifier: ^2.31.0
-        version: 2.31.0(@types/node@24.12.3)
+        version: 2.31.0(@types/node@24.13.2)
       '@types/node':
-        specifier: ^24.12.3
-        version: 24.12.3
+        specifier: ^24.13.2
+        version: 24.13.2
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
       vite-plus:
         specifier: ^0.2.1
-        version: 0.2.1(@edge-runtime/vm@3.2.0)(@types/node@24.12.3)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))
+        version: 0.2.1(@edge-runtime/vm@3.2.0)(@types/node@24.13.2)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))
 
   example/cloudflare-workers:
     dependencies:
@@ -1261,8 +1261,8 @@ packages:
   '@types/node@22.19.15':
     resolution: {integrity: sha512-F0R/h2+dsy5wJAUe3tAU6oqa2qbWY5TpNfL/RGmo1y38hiyO1w3x2jPtt76wmuaJI4DQnOBu21cNXQ2STIUUWg==}
 
-  '@types/node@24.12.3':
-    resolution: {integrity: sha512-8oljBDGun9cIsZRJR6fkihn0TSXJI0UDOOhncYaERq6M0JMDoPLxyscwruJcb4GKS6dvK/d8xebYBg27h/duaQ==}
+  '@types/node@24.13.2':
+    resolution: {integrity: sha512-fRa09kZTgu8o71KFcDjUFuc7F+dEbZYZmkI0mg5YBTRs0yMKjYHsq/c0urDKeDb+D5qVgXOdFcuu+DZPKOITwA==}
 
   '@typescript/vfs@1.6.4':
     resolution: {integrity: sha512-PJFXFS4ZJKiJ9Qiuix6Dz/OwEIqHD7Dme1UwZhTK11vR+5dqW2ACbdndWQexBzCx+CPuMe5WBYQWCsFyGlQLlQ==}
@@ -2045,8 +2045,8 @@ packages:
   undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
-  undici-types@7.16.0:
-    resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
+  undici-types@7.18.2:
+    resolution: {integrity: sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w==}
 
   undici@7.24.8:
     resolution: {integrity: sha512-6KQ/+QxK49Z/p3HO6E5ZCZWNnCasyZLa5ExaVYyvPxUwKtbCPMKELJOqh7EqOle0t9cH/7d2TaaTRRa6Nhs4YQ==}
@@ -2314,7 +2314,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@changesets/cli@2.31.0(@types/node@24.12.3)':
+  '@changesets/cli@2.31.0(@types/node@24.13.2)':
     dependencies:
       '@changesets/apply-release-plan': 7.1.1
       '@changesets/assemble-release-plan': 6.0.10
@@ -2330,7 +2330,7 @@ snapshots:
       '@changesets/should-skip-package': 0.1.2
       '@changesets/types': 6.1.0
       '@changesets/write': 0.4.0
-      '@inquirer/external-editor': 1.0.3(@types/node@24.12.3)
+      '@inquirer/external-editor': 1.0.3(@types/node@24.13.2)
       '@manypkg/get-packages': 1.1.3
       ansi-colors: 4.1.3
       enquirer: 2.4.1
@@ -2738,12 +2738,12 @@ snapshots:
   '@img/sharp-win32-x64@0.34.5':
     optional: true
 
-  '@inquirer/external-editor@1.0.3(@types/node@24.12.3)':
+  '@inquirer/external-editor@1.0.3(@types/node@24.13.2)':
     dependencies:
       chardet: 2.1.1
       iconv-lite: 0.7.2
     optionalDependencies:
-      '@types/node': 24.12.3
+      '@types/node': 24.13.2
 
   '@jridgewell/resolve-uri@3.1.2': {}
 
@@ -3047,9 +3047,9 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
-  '@types/node@24.12.3':
+  '@types/node@24.13.2':
     dependencies:
-      undici-types: 7.16.0
+      undici-types: 7.18.2
 
   '@typescript/vfs@1.6.4(typescript@5.4.5)':
     dependencies:
@@ -3058,28 +3058,28 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/browser-preview@4.1.9(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))(vitest@4.1.9)':
+  '@vitest/browser-preview@4.1.9(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))(vitest@4.1.9)':
     dependencies:
       '@testing-library/dom': 10.4.1
       '@testing-library/user-event': 14.6.1(@testing-library/dom@10.4.1)
-      '@vitest/browser': 4.1.9(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))(vitest@4.1.9)
-      vitest: 4.1.9(@edge-runtime/vm@3.2.0)(@types/node@24.12.3)(@vitest/browser-preview@4.1.9)(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))
+      '@vitest/browser': 4.1.9(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))(vitest@4.1.9)
+      vitest: 4.1.9(@edge-runtime/vm@3.2.0)(@types/node@24.13.2)(@vitest/browser-preview@4.1.9)(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))
     transitivePeerDependencies:
       - bufferutil
       - msw
       - utf-8-validate
       - vite
 
-  '@vitest/browser@4.1.9(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))(vitest@4.1.9)':
+  '@vitest/browser@4.1.9(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))(vitest@4.1.9)':
     dependencies:
       '@blazediff/core': 1.9.1
-      '@vitest/mocker': 4.1.9(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))
+      '@vitest/mocker': 4.1.9(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))
       '@vitest/utils': 4.1.9
       magic-string: 0.30.21
       pngjs: 7.0.0
       sirv: 3.0.2
       tinyrainbow: 3.1.0
-      vitest: 4.1.9(@edge-runtime/vm@3.2.0)(@types/node@24.12.3)(@vitest/browser-preview@4.1.9)(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))
+      vitest: 4.1.9(@edge-runtime/vm@3.2.0)(@types/node@24.13.2)(@vitest/browser-preview@4.1.9)(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))
       ws: 8.20.0
     transitivePeerDependencies:
       - bufferutil
@@ -3096,13 +3096,13 @@ snapshots:
       chai: 6.2.2
       tinyrainbow: 3.1.0
 
-  '@vitest/mocker@4.1.9(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))':
+  '@vitest/mocker@4.1.9(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))':
     dependencies:
       '@vitest/spy': 4.1.9
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0)
+      vite: 7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0)
 
   '@vitest/pretty-format@4.1.9':
     dependencies:
@@ -3128,14 +3128,14 @@ snapshots:
       convert-source-map: 2.0.0
       tinyrainbow: 3.1.0
 
-  '@voidzero-dev/vite-plus-core@0.2.1(@types/node@24.12.3)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)':
+  '@voidzero-dev/vite-plus-core@0.2.1(@types/node@24.13.2)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)':
     dependencies:
       '@oxc-project/runtime': 0.136.0
       '@oxc-project/types': 0.136.0
       lightningcss: 1.32.0
       postcss: 8.5.14
     optionalDependencies:
-      '@types/node': 24.12.3
+      '@types/node': 24.13.2
       esbuild: 0.27.7
       fsevents: 2.3.3
       tsx: 4.21.0
@@ -3502,7 +3502,7 @@ snapshots:
 
   outdent@0.5.0: {}
 
-  oxfmt@0.55.0(vite-plus@0.2.1(@edge-runtime/vm@3.2.0)(@types/node@24.12.3)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))):
+  oxfmt@0.55.0(vite-plus@0.2.1(@edge-runtime/vm@3.2.0)(@types/node@24.13.2)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))):
     dependencies:
       tinypool: 2.1.0
     optionalDependencies:
@@ -3525,7 +3525,7 @@ snapshots:
       '@oxfmt/binding-win32-arm64-msvc': 0.55.0
       '@oxfmt/binding-win32-ia32-msvc': 0.55.0
       '@oxfmt/binding-win32-x64-msvc': 0.55.0
-      vite-plus: 0.2.1(@edge-runtime/vm@3.2.0)(@types/node@24.12.3)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))
+      vite-plus: 0.2.1(@edge-runtime/vm@3.2.0)(@types/node@24.13.2)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))
 
   oxlint-tsgolint@0.23.0:
     optionalDependencies:
@@ -3536,7 +3536,7 @@ snapshots:
       '@oxlint-tsgolint/win32-arm64': 0.23.0
       '@oxlint-tsgolint/win32-x64': 0.23.0
 
-  oxlint@1.70.0(oxlint-tsgolint@0.23.0)(vite-plus@0.2.1(@edge-runtime/vm@3.2.0)(@types/node@24.12.3)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))):
+  oxlint@1.70.0(oxlint-tsgolint@0.23.0)(vite-plus@0.2.1(@edge-runtime/vm@3.2.0)(@types/node@24.13.2)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))):
     optionalDependencies:
       '@oxlint/binding-android-arm-eabi': 1.70.0
       '@oxlint/binding-android-arm64': 1.70.0
@@ -3558,7 +3558,7 @@ snapshots:
       '@oxlint/binding-win32-ia32-msvc': 1.70.0
       '@oxlint/binding-win32-x64-msvc': 1.70.0
       oxlint-tsgolint: 0.23.0
-      vite-plus: 0.2.1(@edge-runtime/vm@3.2.0)(@types/node@24.12.3)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))
+      vite-plus: 0.2.1(@edge-runtime/vm@3.2.0)(@types/node@24.13.2)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))
 
   p-filter@2.1.0:
     dependencies:
@@ -3783,7 +3783,7 @@ snapshots:
 
   undici-types@6.21.0: {}
 
-  undici-types@7.16.0: {}
+  undici-types@7.18.2: {}
 
   undici@7.24.8: {}
 
@@ -3793,24 +3793,24 @@ snapshots:
 
   universalify@0.1.2: {}
 
-  vite-plus@0.2.1(@edge-runtime/vm@3.2.0)(@types/node@24.12.3)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0)):
+  vite-plus@0.2.1(@edge-runtime/vm@3.2.0)(@types/node@24.13.2)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0)):
     dependencies:
       '@oxc-project/types': 0.136.0
       '@oxlint/plugins': 1.68.0
-      '@vitest/browser': 4.1.9(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))(vitest@4.1.9)
-      '@vitest/browser-preview': 4.1.9(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))(vitest@4.1.9)
+      '@vitest/browser': 4.1.9(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))(vitest@4.1.9)
+      '@vitest/browser-preview': 4.1.9(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))(vitest@4.1.9)
       '@vitest/expect': 4.1.9
-      '@vitest/mocker': 4.1.9(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))
+      '@vitest/mocker': 4.1.9(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))
       '@vitest/pretty-format': 4.1.9
       '@vitest/runner': 4.1.9
       '@vitest/snapshot': 4.1.9
       '@vitest/spy': 4.1.9
       '@vitest/utils': 4.1.9
-      '@voidzero-dev/vite-plus-core': 0.2.1(@types/node@24.12.3)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)
-      oxfmt: 0.55.0(vite-plus@0.2.1(@edge-runtime/vm@3.2.0)(@types/node@24.12.3)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0)))
-      oxlint: 1.70.0(oxlint-tsgolint@0.23.0)(vite-plus@0.2.1(@edge-runtime/vm@3.2.0)(@types/node@24.12.3)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0)))
+      '@voidzero-dev/vite-plus-core': 0.2.1(@types/node@24.13.2)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)
+      oxfmt: 0.55.0(vite-plus@0.2.1(@edge-runtime/vm@3.2.0)(@types/node@24.13.2)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0)))
+      oxlint: 1.70.0(oxlint-tsgolint@0.23.0)(vite-plus@0.2.1(@edge-runtime/vm@3.2.0)(@types/node@24.13.2)(esbuild@0.27.7)(tsx@4.21.0)(typescript@6.0.3)(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0)))
       oxlint-tsgolint: 0.23.0
-      vitest: 4.1.9(@edge-runtime/vm@3.2.0)(@types/node@24.12.3)(@vitest/browser-preview@4.1.9)(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))
+      vitest: 4.1.9(@edge-runtime/vm@3.2.0)(@types/node@24.13.2)(@vitest/browser-preview@4.1.9)(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))
     optionalDependencies:
       '@voidzero-dev/vite-plus-darwin-arm64': 0.2.1
       '@voidzero-dev/vite-plus-darwin-x64': 0.2.1
@@ -3853,7 +3853,7 @@ snapshots:
       - vite
       - yaml
 
-  vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0):
+  vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0):
     dependencies:
       esbuild: 0.27.7
       fdir: 6.5.0(picomatch@4.0.4)
@@ -3862,15 +3862,15 @@ snapshots:
       rollup: 4.60.3
       tinyglobby: 0.2.16
     optionalDependencies:
-      '@types/node': 24.12.3
+      '@types/node': 24.13.2
       fsevents: 2.3.3
       lightningcss: 1.32.0
       tsx: 4.21.0
 
-  vitest@4.1.9(@edge-runtime/vm@3.2.0)(@types/node@24.12.3)(@vitest/browser-preview@4.1.9)(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0)):
+  vitest@4.1.9(@edge-runtime/vm@3.2.0)(@types/node@24.13.2)(@vitest/browser-preview@4.1.9)(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0)):
     dependencies:
       '@vitest/expect': 4.1.9
-      '@vitest/mocker': 4.1.9(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))
+      '@vitest/mocker': 4.1.9(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))
       '@vitest/pretty-format': 4.1.9
       '@vitest/runner': 4.1.9
       '@vitest/snapshot': 4.1.9
@@ -3887,12 +3887,12 @@ snapshots:
       tinyexec: 1.1.2
       tinyglobby: 0.2.16
       tinyrainbow: 3.1.0
-      vite: 7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0)
+      vite: 7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@edge-runtime/vm': 3.2.0
-      '@types/node': 24.12.3
-      '@vitest/browser-preview': 4.1.9(vite@7.3.1(@types/node@24.12.3)(lightningcss@1.32.0)(tsx@4.21.0))(vitest@4.1.9)
+      '@types/node': 24.13.2
+      '@vitest/browser-preview': 4.1.9(vite@7.3.1(@types/node@24.13.2)(lightningcss@1.32.0)(tsx@4.21.0))(vitest@4.1.9)
     transitivePeerDependencies:
       - msw
 
