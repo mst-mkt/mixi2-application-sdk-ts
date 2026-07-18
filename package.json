@@ -44,7 +44,7 @@
     "@changesets/cli": "^2.31.0",
     "@connectrpc/connect": "^2.1.1",
     "@types/node": "^24.12.3",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.2",
     "vite-plus": "^0.2.4"
   },
   "engines": {
