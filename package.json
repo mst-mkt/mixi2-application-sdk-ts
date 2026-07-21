@@ -32,13 +32,13 @@
     "prepare": "vp config"
   },
   "dependencies": {
-    "@bufbuild/protobuf": "^2.12.0",
+    "@bufbuild/protobuf": "^2.12.1",
     "@connectrpc/connect": "^2.1.1",
     "@connectrpc/connect-node": "^2.1.1"
   },
   "devDependencies": {
     "@bufbuild/buf": "^1.71.0",
-    "@bufbuild/protobuf": "^2.12.0",
+    "@bufbuild/protobuf": "^2.12.1",
     "@bufbuild/protoc-gen-es": "^2.12.1",
     "@changesets/changelog-github": "^0.7.0",
     "@changesets/cli": "^2.31.0",

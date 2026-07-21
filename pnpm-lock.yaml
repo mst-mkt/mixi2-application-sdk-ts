@@ -9,21 +9,21 @@ importers:
   .:
     dependencies:
       '@bufbuild/protobuf':
-        specifier: ^2.12.0
-        version: 2.12.0
+        specifier: ^2.12.1
+        version: 2.12.1
       '@connectrpc/connect':
         specifier: ^2.1.1
-        version: 2.1.1(@bufbuild/protobuf@2.12.0)
+        version: 2.1.1(@bufbuild/protobuf@2.12.1)
       '@connectrpc/connect-node':
         specifier: ^2.1.1
-        version: 2.1.1(@bufbuild/protobuf@2.12.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.12.0))
+        version: 2.1.1(@bufbuild/protobuf@2.12.1)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.12.1))
     devDependencies:
       '@bufbuild/buf':
         specifier: ^1.71.0
         version: 1.71.0
       '@bufbuild/protoc-gen-es':
         specifier: ^2.12.1
-        version: 2.12.1(@bufbuild/protobuf@2.12.0)
+        version: 2.12.1(@bufbuild/protobuf@2.12.1)
       '@changesets/changelog-github':
         specifier: ^0.7.0
         version: 0.7.0
@@ -135,9 +135,6 @@ packages:
     resolution: {integrity: sha512-GDcjBCwLgHT/4nX4YSnYatZ7sDZDpHV6dxQvoT2/P6gKvV23O6hl8NryzLIRKmeau0FRXpQKHVy1dMfnBSpy+w==}
     engines: {node: '>=12'}
     hasBin: true
-
-  '@bufbuild/protobuf@2.12.0':
-    resolution: {integrity: sha512-B/XlCaFIP8LOwzo+bz5uFzATYokcwCKQcghqnlfwSmM5eX/qTkvDBnDPs+gXtX/RyjxJ4DRikECcPJbyALA8FA==}
 
   '@bufbuild/protobuf@2.12.1':
     resolution: {integrity: sha512-BvAMfS6LrgZiryOAZ4pBYucu4wG/Ei/9o9DZ9akbREnMLbPJiom2i8b9C8IsKErQoiKqVhrerzt3kOT/RrzLHg==}
@@ -2256,15 +2253,13 @@ snapshots:
       '@bufbuild/buf-win32-arm64': 1.71.0
       '@bufbuild/buf-win32-x64': 1.71.0
 
-  '@bufbuild/protobuf@2.12.0': {}
-
   '@bufbuild/protobuf@2.12.1': {}
 
-  '@bufbuild/protoc-gen-es@2.12.1(@bufbuild/protobuf@2.12.0)':
+  '@bufbuild/protoc-gen-es@2.12.1(@bufbuild/protobuf@2.12.1)':
     dependencies:
       '@bufbuild/protoplugin': 2.12.1
     optionalDependencies:
-      '@bufbuild/protobuf': 2.12.0
+      '@bufbuild/protobuf': 2.12.1
     transitivePeerDependencies:
       - supports-color
 
@@ -2459,14 +2454,14 @@ snapshots:
 
   '@cloudflare/workers-types@4.20260503.1': {}
 
-  '@connectrpc/connect-node@2.1.1(@bufbuild/protobuf@2.12.0)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.12.0))':
+  '@connectrpc/connect-node@2.1.1(@bufbuild/protobuf@2.12.1)(@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.12.1))':
     dependencies:
-      '@bufbuild/protobuf': 2.12.0
-      '@connectrpc/connect': 2.1.1(@bufbuild/protobuf@2.12.0)
+      '@bufbuild/protobuf': 2.12.1
+      '@connectrpc/connect': 2.1.1(@bufbuild/protobuf@2.12.1)
 
-  '@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.12.0)':
+  '@connectrpc/connect@2.1.1(@bufbuild/protobuf@2.12.1)':
     dependencies:
-      '@bufbuild/protobuf': 2.12.0
+      '@bufbuild/protobuf': 2.12.1
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
