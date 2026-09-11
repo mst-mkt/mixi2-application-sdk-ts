@@ -20,8 +20,6 @@
           packages = [
             pkgs.nodejs_24
             pkgs.pnpm
-            pkgs.deno
-            pkgs.pinact
           ];
         };
       });
