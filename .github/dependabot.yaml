@@ -1,0 +1,39 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 3
+    labels: [dependencies]
+    groups:
+      npm:
+        patterns: ['*']
+    ignore:
+      # Matches the lowest Node.js in engines.
+      - dependency-name: '@types/node'
+        update-types: [version-update:semver-major]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 3
+    labels: [dependencies]
+    groups:
+      github-actions:
+        patterns: ['*']
+
+  - package-ecosystem: nix
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 3
+    labels: [dependencies]
+    groups:
+      nix:
+        patterns: ['*']
