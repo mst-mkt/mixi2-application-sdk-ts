@@ -24,7 +24,7 @@ jobs:
       - name: setup vite+
         uses: voidzero-dev/setup-vp@v1.21.2
         with:
-          node-version: '24.14.0'
+          node-version: '24.22.1'
           cache: true
       - name: create release pr or publish to npm
         id: changesets
@@ -52,7 +52,7 @@ jobs:
       - name: setup vite+
         uses: voidzero-dev/setup-vp@v1.21.2
         with:
-          node-version: '24.14.0'
+          node-version: '24.22.1'
           cache: true
       - name: publish to jsr
         run: vp dlx jsr publish
