@@ -5,19 +5,21 @@ on:
     - cron: '0 11 * * *' # JST 20:00
   workflow_dispatch:
 
-permissions:
-  contents: write
-  pull-requests: write
+permissions: {}
 
 jobs:
   detect:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     outputs:
       matrix: ${{ steps.parse.outputs.matrix }}
       has_targets: ${{ steps.parse.outputs.has_targets }}
     steps:
       - name: checkout
         uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
 
       - name: parse buf.gen.yaml
         id: parse
@@ -38,6 +40,9 @@ jobs:
     needs: detect
     if: needs.detect.outputs.has_targets == 'true'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     strategy:
       fail-fast: false
       matrix:
@@ -45,19 +50,25 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
 
       - name: get latest tag
         id: latest
         env:
           GH_TOKEN: ${{ github.token }}
+          REPO: ${{ matrix.repo }}
         run: |
-          tag=$(gh api repos/${{ matrix.repo }}/releases/latest --jq '.tag_name')
+          tag=$(gh api "repos/$REPO/releases/latest" --jq '.tag_name')
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
 
       - name: check if update needed
         id: check
+        env:
+          CURRENT_TAG: ${{ matrix.currentTag }}
+          LATEST_TAG: ${{ steps.latest.outputs.tag }}
         run: |
-          if [ "${{ matrix.currentTag }}" = "${{ steps.latest.outputs.tag }}" ]; then
+          if [ "$CURRENT_TAG" = "$LATEST_TAG" ]; then
             echo "skip=true" >> "$GITHUB_OUTPUT"
           else
             echo "skip=false" >> "$GITHUB_OUTPUT"
@@ -72,7 +83,10 @@ jobs:
 
       - name: update buf.gen.yaml
         if: steps.check.outputs.skip != 'true'
-        run: yq -i "(.inputs[] | select(.git_repo == \"${{ matrix.gitRepo }}\")).tag = \"${{ steps.latest.outputs.tag }}\"" buf.gen.yaml
+        env:
+          GIT_REPO: ${{ matrix.gitRepo }}
+          LATEST_TAG: ${{ steps.latest.outputs.tag }}
+        run: yq -i '(.inputs[] | select(.git_repo == strenv(GIT_REPO))).tag = strenv(LATEST_TAG)' buf.gen.yaml
 
       - name: generate code
         if: steps.check.outputs.skip != 'true'

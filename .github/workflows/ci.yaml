@@ -7,10 +7,14 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
   ci:
     name: check (node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     strategy:
       fail-fast: false
       matrix:
@@ -21,6 +25,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
       - name: setup vite+
         uses: voidzero-dev/setup-vp@v1.21.2
         with:
