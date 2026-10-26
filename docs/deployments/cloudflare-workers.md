@@ -159,6 +159,7 @@ export function createGrpcTransport(options: {
 
 ```typescript
 import { createAuthenticator, createMixi2Client } from '@mst-mkt/mixi2-application-sdk-ts'
+
 import { createGrpcTransport } from './transport'
 
 export default {
