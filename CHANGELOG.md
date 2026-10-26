@@ -1,5 +1,12 @@
 # @mst-mkt/mixi2-application-sdk-ts
 
+## 1.0.1
+
+### Patch Changes
+
+- [`18f3d04`](https://github.com/mst-mkt/mixi2-application-sdk-ts/commit/18f3d047a7a9895c05f8b96aa4a1e841f3633ebb) Thanks [@mst-mkt](https://github.com/mst-mkt)! - Update dependencies.
+  Bump `@bufbuild/protobuf` to `^2.16.0` and `@connectrpc/connect`, `@connectrpc/connect-node` to `^2.2.0`.
+
 ## 1.0.0
 
 ### Major Changes
