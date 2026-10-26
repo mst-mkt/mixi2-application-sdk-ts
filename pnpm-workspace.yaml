@@ -1,5 +1,5 @@
 allowBuilds:
-  '@bufbuild/buf': true
+  '@bufbuild/buf': false
   esbuild: false
 
 catalog:
