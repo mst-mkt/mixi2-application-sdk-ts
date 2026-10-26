@@ -17,7 +17,7 @@ jobs:
       has_targets: ${{ steps.parse.outputs.has_targets }}
     steps:
       - name: checkout
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        uses: actions/checkout@v7.0.1
 
       - name: parse buf.gen.yaml
         id: parse
@@ -44,7 +44,7 @@ jobs:
         include: ${{ fromJson(needs.detect.outputs.matrix) }}
     steps:
       - name: checkout
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        uses: actions/checkout@v7.0.1
 
       - name: get latest tag
         id: latest
@@ -65,7 +65,7 @@ jobs:
 
       - name: setup vite+
         if: steps.check.outputs.skip != 'true'
-        uses: voidzero-dev/setup-vp@313600b80b104eadebb9111787d37a2e83e014ca # v1.17.0
+        uses: voidzero-dev/setup-vp@v1.21.2
         with:
           node-version: '24.14.0'
           cache: true
@@ -80,7 +80,7 @@ jobs:
 
       - name: create pull request
         if: steps.check.outputs.skip != 'true'
-        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        uses: peter-evans/create-pull-request@v8.1.1
         with:
           branch: update-proto/${{ matrix.repo }}/${{ steps.latest.outputs.tag }}
           delete-branch: true

@@ -16,15 +16,15 @@ jobs:
       id-token: write
     steps:
       - name: checkout
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        uses: actions/checkout@v7.0.1
       - name: setup vite+
-        uses: voidzero-dev/setup-vp@313600b80b104eadebb9111787d37a2e83e014ca # v1.17.0
+        uses: voidzero-dev/setup-vp@v1.21.2
         with:
           node-version: '24.14.0'
           cache: true
       - name: create release pr or publish to npm
         id: changesets
-        uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
+        uses: changesets/action@v2.1.2
         with:
           commit-message: 'release version'
           pr-title: 'release version'
@@ -42,9 +42,9 @@ jobs:
       id-token: write
     steps:
       - name: checkout
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        uses: actions/checkout@v7.0.1
       - name: setup vite+
-        uses: voidzero-dev/setup-vp@313600b80b104eadebb9111787d37a2e83e014ca # v1.17.0
+        uses: voidzero-dev/setup-vp@v1.21.2
         with:
           node-version: '24.14.0'
           cache: true
