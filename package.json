@@ -16,6 +16,7 @@
     "url": "https://github.com/mst-mkt/mixi2-application-sdk-ts.git"
   },
   "files": [
+    "assets",
     "dist",
     "docs",
     "LICENSE",
