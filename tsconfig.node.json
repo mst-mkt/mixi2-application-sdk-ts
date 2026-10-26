@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES2023",
-    "lib": ["ES2023"],
+    "target": "ES2024",
+    "lib": ["ES2024"],
     "module": "preserve",
     "moduleResolution": "bundler",
     "moduleDetection": "force",
@@ -11,6 +11,7 @@
 
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
 
     "composite": true,
     "skipLibCheck": true

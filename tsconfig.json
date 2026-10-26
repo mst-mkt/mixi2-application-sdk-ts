@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ES2023",
-    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "target": "ES2024",
+    "lib": ["ES2024", "DOM", "DOM.Iterable"],
     "module": "preserve",
     "moduleResolution": "bundler",
     "moduleDetection": "force",
+    "types": [],
 
     "strict": true,
     "noUncheckedIndexedAccess": true,
@@ -13,6 +14,7 @@
 
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
 
     "isolatedDeclarations": true,
     "declaration": true,
