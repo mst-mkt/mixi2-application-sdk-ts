@@ -47,13 +47,14 @@
     "typescript": "^6.0.3",
     "vite-plus": "^0.2.9"
   },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^12.9.0",
+      "onFail": "error"
+    }
+  },
   "engines": {
     "node": ">=22"
-  },
-  "packageManager": "pnpm@10.33.0",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@bufbuild/buf"
-    ]
   }
 }
