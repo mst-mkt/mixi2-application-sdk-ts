@@ -5,7 +5,10 @@ export default defineConfig({
     tasks: {
       generate: {
         command: 'buf generate',
-        cache: false,
+        cache: {
+          input: [{ auto: true }, '!src/gen/**'],
+          output: ['src/gen/**'],
+        },
       },
       build: {
         command: 'vp pack',
