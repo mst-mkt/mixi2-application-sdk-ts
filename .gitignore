@@ -6,3 +6,4 @@ dist/
 .dev.vars
 .direnv/
 docs/_internal
+.vitest/
