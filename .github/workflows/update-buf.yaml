@@ -76,7 +76,7 @@ jobs:
 
       - name: setup vite+
         if: steps.check.outputs.skip != 'true'
-        uses: voidzero-dev/setup-vp@v1.21.2
+        uses: voidzero-dev/setup-vp@v1.22.0
         with:
           node-version: '24.22.1'
           cache: true
@@ -94,7 +94,7 @@ jobs:
 
       - name: create pull request
         if: steps.check.outputs.skip != 'true'
-        uses: peter-evans/create-pull-request@v8.1.1
+        uses: peter-evans/create-pull-request@v8.1.2
         with:
           branch: update-proto/${{ matrix.repo }}/${{ steps.latest.outputs.tag }}
           delete-branch: true
